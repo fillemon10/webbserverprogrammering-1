@@ -34,4 +34,21 @@ $temporary = array(
     )
 );
 
+$slug = filter_input(INPUT_GET, 'slug', FILTER_SANITIZE_URL);
+
+header("Content-type: text/html; charset=utf-8");
+
+if(empty($slug) ) {
+    echo "<h1>De senaste inläggen</h1>";
+    foreach ( $temporary as $slug => $blogpost) {
+        echo "<h2><a href='blog.php?slug={$slug}'>{$blogpost['title']}</h2>\n";
+    }
+
+} elseif (array_key_exists($slug, $temporary) ) {
+    echo "<h1>{$temporary[$slug]['title']}</h1>";
+} else {
+    header("HTTP/1.0 404 Not Found");
+    echo "<h1>Den sökta sidan finns inte</h1>";
+}
+
 

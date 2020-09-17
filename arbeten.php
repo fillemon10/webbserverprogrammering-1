@@ -8,23 +8,26 @@
 -->
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <meta charset="utf-8" />
   <title>Våra tjänster - Läxhjälpen</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- base href="/" / --><!-- Påverkar #-länkarna -->
+  <!-- base href="/" / -->
+  <!-- Påverkar #-länkarna -->
   <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' />
   <link href="css/laxhjalpen.css" title="Finished" rel="stylesheet" />
   <link rel="stylesheet" href="themes/default/default.css" media="screen" />
   <link rel="stylesheet" href="css/nivo-slider.css" media="screen" />
 </head>
+
 <body class="subpage">
   <header>
     <div class="hwrap">
       <a href="./"><img class="logo" alt="Startsidan" src="img/laxlogo.png" /></a>
       <h1>Läxhjälpen: <span>Våra tjänster</span></h1>
     </div>
-   <hr class="tagline">
+    <hr class="tagline">
   </header>
   <nav>
     <ul class="menu">
@@ -37,12 +40,12 @@
   <div role="main">
     <div class="blockslider theme-default">
       <!-- div class="" -->
-        <div id="slider" class="nivoSlider">
-          <a href="#lstuga"><img src="img/1.png" alt="" title="Läxstuga med dig och dina kompisar" /></a>
-          <a href="#skypeh"><img src="img/2.png" alt="" title="Hjälp via Skype" /></a>
-          <a href="#mailhp"><img src="img/3.png" alt="" title="Hjälp via email" /></a>
-          <a href="#videos"><img src="img/4.png" alt="" title="Vi har också videolektioner" /></a>
-        </div>
+      <div id="slider" class="nivoSlider">
+        <a href="#lstuga"><img src="img/1.png" alt="" title="Läxstuga med dig och dina kompisar" /></a>
+        <a href="#skypeh"><img src="img/2.png" alt="" title="Hjälp via Skype" /></a>
+        <a href="#mailhp"><img src="img/3.png" alt="" title="Hjälp via email" /></a>
+        <a href="#videos"><img src="img/4.png" alt="" title="Vi har också videolektioner" /></a>
+      </div>
       <!-- /div -->
     </div>
     <table class="borderless services">
@@ -81,4 +84,5 @@
     $('#slider').nivoSlider();
   </script>
 </body>
+
 </html>
