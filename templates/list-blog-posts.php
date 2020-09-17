@@ -11,8 +11,8 @@
 </head>
 <body class="subpage">
 <?php 
-require "masthead.php";
-require "menu.php";
+require $_SERVER['DOCUMENT_ROOT']."/masthead.php";
+require $_SERVER['DOCUMENT_ROOT']."/menu.php";
 ?>
 <div role=main>
     <h2>De senaste blogginläggen</h2>
@@ -23,13 +23,13 @@ require "menu.php";
         <article class="blogpostlist">
         <h3><a href='blog.php?slug={$slug}'>{$blogpost['title']}</h3>
         <p><small>Postad {$blogpost['pubdate']} av {$blogpost['username']}</small></p>
-        <div class="blogtext"> {blogpost['text']}
+        <div class="blogtext"> {$blogpost['text']}
         </div>
         </article>
         ARTICLE;
     }
     echo "</div>\n";
-    require "footer.php";
+    require $_SERVER['DOCUMENT_ROOT']."/footer.php";
     ?>
 </div>
 </body>
