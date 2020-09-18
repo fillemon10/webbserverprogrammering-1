@@ -1,5 +1,0 @@
-RewriteEngine On
-# FIXME enligt avsnitt 18.1 i Läroboken
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
-

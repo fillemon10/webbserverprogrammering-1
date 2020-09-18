@@ -1,24 +1,29 @@
-<?php 
+<?php
+/**
+ * Mall för sidan om-oss
+ */
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vilka vi är - Läxhjälpen</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merienda+One">
-    <link rel="stylesheet" href="css/laxhjalpen.css">
+ <meta charset="utf-8" />
+ <title> Vilka vi är - Läxhjälpen</title>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <link href='http://fonts.googleapis.com/css?family=merienda+one' rel='stylesheet' />
+ <link href="../html/css/laxhjalpen.css" rel="stylesheet" /> 
 </head>
 <body class="subpage">
-    <?php
-    Require $_SERVER['DOCUMENT_ROOT']."/masthead.php";
-    Require $_SERVER['DOCUMENT_ROOT']."/menu.php";
-    ?>
-<div role="main">
-    <article class="block">
+
+<?php
+require "masthead.php";
+require "menu.php";
+?>
+
+  <div role="main">
+  <article class="block">
       <figure class="alignleft">
-        <img src="img/tjej1.png" alt="Det här är jag - Mia"> 
+        <img src="../html/img/tjej1.png" alt="Det här är jag - Mia"> 
         <figcaption class="bildcaption double">
           Mia
         </figcaption>
@@ -100,8 +105,9 @@
     </article>
   </div>
 
-    <?php 
-        Require $_SERVER['DOCUMENT_ROOT']."/footer.php";
-        ?>
-</body> 
+<?php
+require "footer.php";
+?>
+
+</body>
 </html>

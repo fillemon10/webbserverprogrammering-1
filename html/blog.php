@@ -5,6 +5,9 @@
  * Denna påbörjas i kapitel 4 och får sin slutliga form i kapitel 13
  */
 
+
+
+
 // En array som innehåller tre fingerade inlägg
 // Varje inlägg är en inre array
 $temporary = array(
@@ -31,17 +34,27 @@ $temporary = array(
     )
 );
 
+//Läs av GET-parametern
 $slug = filter_input(INPUT_GET, 'slug', FILTER_SANITIZE_URL);
-
-header("Content-type: text/html; charset=utf-8");
 $h1span = "Blogg";
-if(empty($slug) ) {
+//Provisorisk angivelse av teckenkodning under tiden vi testar 
+header("Content-type: text/html; charset=utf-8");
+if (empty($slug) ) {
     $template = 'list-blog-posts';
-} elseif (array_key_exists($slug, $temporary) ) {
-    echo "<h1>{$temporary[$slug]['title']}</h1>";
-    require $_SERVER['DOCUMENT_ROOT']."/templates/{$template}.php";
-} else {
+
+    
+}
+
+elseif ( array_key_exists($slug, $temporary) ) {
+    //Ett befintligt inlägg har valts, visa det
+    //Preliminär test-kod visar bara inläggets titel
+    echo "<h1>{$temporary[$slug]['title']}</h1>\n";
+}
+
+else {
+    //Ett ogiltigt val har gjort
     header("HTTP/1.0 404 Not Found");
     echo "<h1>Den sökta sidan finns inte</h1>";
 }
-?>
+
+require "../templates/{$template}.php";
