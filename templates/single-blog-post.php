@@ -1,5 +1,5 @@
 <title><?php echo "{$blogpost['title']} - Läxhjälpens -> blogg"; ?></title>
-
+<link rel="stylesheet" href="html/css/läxhjälpen.css">
 <body class="subpage">
 <?php
 require "masthead.php";

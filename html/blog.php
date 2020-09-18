@@ -46,15 +46,14 @@ if (empty($slug) ) {
 }
 
 elseif ( array_key_exists($slug, $temporary) ) {
-    //Ett befintligt inlägg har valts, visa det
-    //Preliminär test-kod visar bara inläggets titel
-    echo "<h1>{$temporary[$slug]['title']}</h1>\n";
+$blogpost = $temporary[$slug];
+$template = 'single-blog-post';
 }
 
 else {
     //Ett ogiltigt val har gjort
     header("HTTP/1.0 404 Not Found");
-    echo "<h1>Den sökta sidan finns inte</h1>";
+    $template = 'not-found';
 }
 
 require "../templates/{$template}.php";
