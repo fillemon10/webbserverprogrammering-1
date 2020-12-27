@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv= x-ua-compatible content= ie=edge>
+  <title>Java html attribut</title>
+<style>
+.democlass {
+  color: green;
+}
+body{
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Tjenare mannen</h1>
+
+<p>Klicka för att bli grön sätta attributet demoklass på texten</p>
+
+<button onclick="myFunction()">TESTA NU :)</button>
+
+<script>
+function myFunction() {
+  document.getElementsByTagName("body")[0].setAttribute("class", "democlass"); 
+}
+</script>
+
+</body>
+</html>

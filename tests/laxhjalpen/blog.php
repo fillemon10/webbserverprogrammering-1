@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Page controler för bloggfunktionen
  * 
@@ -39,18 +40,12 @@ $slug = filter_input(INPUT_GET, 'slug', FILTER_SANITIZE_URL);
 $h1span = "Blogg";
 //Provisorisk angivelse av teckenkodning under tiden vi testar 
 header("Content-type: text/html; charset=utf-8");
-if (empty($slug) ) {
+if (empty($slug)) {
     $template = 'list-blog-posts';
-
-    
-}
-
-elseif ( array_key_exists($slug, $temporary) ) {
-$blogpost = $temporary[$slug];
-$template = 'single-blog-post';
-}
-
-else {
+} elseif (array_key_exists($slug, $temporary)) {
+    $blogpost = $temporary[$slug];
+    $template = 'single-blog-post';
+} else {
     //Ett ogiltigt val har gjort
     header("HTTP/1.0 404 Not Found");
     $template = 'not-found';

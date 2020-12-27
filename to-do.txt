@@ -1,0 +1,32 @@
+uppdatera design av reviews
+uppdatera design av blog
+fixa about us
+fixa license
+fixa contact
+fixa myaccount
+fixa index
+fixa search
+fixa member-area
+fixa edit post och reivew så bara author kan redigera
+fixa email register remove html type
+fixa forgot password
+
+permissions
+Admin
+    ALL
+
+Moderator
+    ALL
+        -publish
+        -delete review and blog posts
+        -edit or add users
+        edit your own reviews and blog posts
+
+
+Author
+    write reviews and blog posts
+    edit your own reviews and blog posts
+
+Member
+    Member Area
+

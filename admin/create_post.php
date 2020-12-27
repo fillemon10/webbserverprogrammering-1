@@ -1,0 +1,75 @@
+<?php include('../config.php'); ?>
+<?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
+<?php include(ROOT_PATH . '/admin/post_functions.php');
+$titles = "Create Post" ?>
+
+<?php include(ROOT_PATH . '/admin/includes/head.php'); ?>
+
+<?php
+// Get all topics
+$topics = getAllTopics();
+
+?>
+
+<body>
+
+	<!-- admin navbar -->
+	<?php include(ROOT_PATH . '/admin/includes/navbar.php') ?>
+	<?php include(ROOT_PATH . '/admin/includes/banner.php') ?>
+
+
+	<div class="container mt-20">
+
+		<!-- Middle form - to create and edit  -->
+		<div class="action create-post-div">
+			<h2>Create/Edit Post</h2>
+
+			<form method="post" enctype="multipart/form-data" action="">
+
+				<!-- validation errors for the form -->
+				<?php include(ROOT_PATH . '/includes/errors.php') ?>
+
+				<!-- if editing post, the id is required to identify that post -->
+				<?php if ($isEditingPost === true) : ?>
+					<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+				<?php endif ?>
+
+				<input class="form-control mt-20 mb-20" type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
+
+				<input class="form-control mb-20" type="text" name="image" value="<?php echo $image; ?>" placeholder="Image URL">
+
+				<textarea class="form-control " name="body" id="body" cols="30" rows="10"><?php echo $body; ?></textarea>
+
+				<select class="form-select mb-20 mt-20" name="topic_id">
+					<option value="" selected disabled>Choose topic</option>
+					<?php foreach ($topics as $topic) : ?>
+						<option value="<?php echo $topic['id']; ?>">
+							<?php echo $topic['name']; ?>
+						</option>
+					<?php endforeach ?>
+				</select>
+
+				<!-- if editing post, display the update button instead of create button -->
+				<?php if ($isEditingPost === true) : ?>
+					<button type="submit" class="btn btn-primary float-right mb-20" name="update_post">Update Post</button>
+				<?php else : ?>
+					<button type="submit" class="btn btn-primary float-right mb-20" name="create_post">Create Post</button>
+				<?php endif ?>
+
+			</form>
+		</div>
+		<!-- // Middle form - to create and edit -->
+
+	</div>
+
+</body>
+
+</html>
+
+<script>
+	ClassicEditor
+		.create(document.querySelector('#body'))
+		.catch(error => {
+			console.error(error);
+		});
+</script>
