@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
-                    <a href="index.html" class="logo mb-30"><img src="assets/img/logo/logo.svg" alt="logo" /></a>
+                    <a href="index.php" class="logo mb-30"><img class="footer-logo" src="assets/img/logo/logo.svg" alt="logo" /></a>
                     <p class="mb-30 footer-desc">
                         Read reviews of new And old movies. Cinemania is the #1 place to find good movies to watch. Check out the latests reviews.
                     </p>
@@ -30,19 +30,20 @@
             </div>
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".6s">
-                    <h4>Reviews</h4>
+                    <h4>Legal</h4>
                     <ul class="footer-links">
+
                         <li>
-                            <a href="javascript:void(0)">Latests Movie Reviews</a>
+                            <a href="terms.php">Terms of service</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">Latests TV/Streaming Reviews</a>
+                            <a href="javascript:void(0)">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">Genres</a>
+                            <a href="license.php">License</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">All Reviews</a>
+                            <a href="security.php">Security</a>
                         </li>
                     </ul>
                 </div>

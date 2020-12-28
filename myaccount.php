@@ -16,7 +16,7 @@ require_once("includes/head.php");
     <!-- ========================= -section start ========================= -->
     <?php if (isset($_SESSION['user']['username'])) { ?>
         <section class="myaccount-section pt-50 pb-20">
-            <div class="container feature-box box-style pt-15">
+            <div class="container  box-style pt-15">
                 <div class="row">
                     <div class="col-2">
                         <ul>

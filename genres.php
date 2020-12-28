@@ -23,7 +23,7 @@ $genres = array_unique($genres);
                 <ul>
                     <?php foreach ($genres as $genre) { ?>
                         <li>
-                            <a class="wow fadeInLeft mb-10 red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews.php?genre=' . strtolower($genre) ?>"><?php echo $genre ?></a>
+                            <a class="wow fadeInLeft mb-10" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews.php?genre=' . strtolower($genre) ?>"><h3 class="red"><?php echo $genre ?></h3></a>
                         </li>
                     <?php } ?>
                 </ul>

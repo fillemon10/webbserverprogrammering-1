@@ -39,13 +39,13 @@
                                 <?php if ($isEditingUser === true) : ?>
                                     <input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
                                 <?php endif ?>
-
-                                <input class="form-control mt-20 mb-20" type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
-
-                                <input class="form-control mb-20" type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
-
-                                <input class="form-control mb-20" type="password" name="password" placeholder="Password">
-
+                                <label for="username">Username</label>
+                                <input class="form-control mb-10" type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
+                                <label for="email">Email</label>
+                                <input class="form-control mb-10" type="email" name="email" value="<?php echo $email ?>" placeholder="Email">
+                                <label for="password">Password</label>
+                                <input class="form-control mb-10" type="password" name="password" placeholder="Password">
+                                <label for="passwordConfirmation">Password confirmation</label>
                                 <input class="form-control mb-20" type="password" name="passwordConfirmation" placeholder="Password confirmation">
 
                                 <select class="form-select mb-20 " name="role">

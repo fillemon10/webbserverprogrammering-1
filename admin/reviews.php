@@ -35,7 +35,7 @@ $reviews = getAllreviews();
                             <th>N</th>
                             <th>Author</th>
                             <th>Title Of</th>
-                            <th>Our Rating</th>
+                            <th>Cinemania Rating</th>
                             <th>Title</th>
                             <th>Views</th>
                             <th><small>Published</small></th>

@@ -10,6 +10,10 @@ fixa member-area
 fixa edit post och reivew så bara author kan redigera
 fixa email register remove html type
 fixa forgot password
+lägg till funktion member reviews 
+lägg till funktion comments
+fixa logos så det funkar i varje browser
+lägg till darkmode
 
 permissions
 Admin
@@ -29,4 +33,5 @@ Author
 
 Member
     Member Area
+    write user reviews
 

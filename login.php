@@ -21,10 +21,10 @@ require_once("includes/head.php");
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-2 mx-auto"></div>
                 <div class="col-xl-6 col-lg-6 col-md-8 mx-auto">
-                    <div class="container feature-box box-style pt-15 pb-15">
+                    <div class="container  box-style pt-15 pb-15">
                         <div class="row">
                             <div class="container">
-                                <h3>Login on Cinemania</h3>
+                                <h2>Login on Cinemania</h2>
                                 <form class="form-form" method="post" action="">
                                     <label class=" mb-10 wow fadeInLeft" data-wow-delay="0.9s" for="username">Username</label>
                                     <input class="wow fadeInLeft" data-wow-delay="0.9s" type="text" name="username" value="<?php echo $username; ?>" value="" placeholder="Username">

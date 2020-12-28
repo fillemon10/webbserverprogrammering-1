@@ -2,9 +2,10 @@
 require_once("config.php");
 $title = "About Us";
 require_once("includes/head.php");
+
 ?>
 
-<body>
+<body class="<?php echo $themeClass ?>">
     <!-- ========================= header start ========================= -->
     <?php include("includes/navbar.php") ?>
     <!-- ========================= header end ========================= -->
@@ -28,7 +29,7 @@ require_once("includes/head.php");
 
             <div class="row">
                 <div class="col-lg-4 col-md-6">
-                    <div class="feature-box box-style">
+                    <div class=" box-style">
                         <div class="feature-icon box-icon-style">
                             <i class="lni lni-layers"></i>
                         </div>
@@ -40,7 +41,7 @@ require_once("includes/head.php");
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="feature-box box-style">
+                    <div class=" box-style">
                         <div class="feature-icon box-icon-style">
                             <i class="lni lni-code-alt"></i>
                         </div>
@@ -52,7 +53,7 @@ require_once("includes/head.php");
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="feature-box box-style">
+                    <div class=" box-style">
                         <div class="feature-icon box-icon-style">
                             <i class="lni lni-agenda"></i>
                         </div>

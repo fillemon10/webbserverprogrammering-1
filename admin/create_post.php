@@ -33,10 +33,11 @@ $topics = getAllTopics();
 				<?php if ($isEditingPost === true) : ?>
 					<input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
 				<?php endif ?>
-
-				<input class="form-control mt-20 mb-20" type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
-
-				<input class="form-control mb-20" type="text" name="image" value="<?php echo $image; ?>" placeholder="Image URL">
+				<label class="mt-10" for="title">Title</label>
+				<input class="form-control mb-10" type="text" name="title" value="<?php echo $title; ?>" placeholder="Title">
+				<label for="image">Image URL</label>
+				<input class="form-control mb-10" type="text" name="image" value="<?php echo $image; ?>" placeholder="Image URL">
+				<label for="body">Body</label>
 
 				<textarea class="form-control " name="body" id="body" cols="30" rows="10"><?php echo $body; ?></textarea>
 

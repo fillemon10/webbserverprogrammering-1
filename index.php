@@ -66,17 +66,17 @@ $posts = array_reverse(getPublishedPosts());
 
       <div class="row">
         <div class="col-lg-4 col-md-6">
-          <div class="feature-box box-style text-center">
+          <div class=" box-style text-center">
             <p>Movie 1</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="feature-box box-style text-center">
+          <div class=" box-style text-center">
             <p>Movie 2</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
-          <div class="feature-box box-style text-center">
+          <div class=" box-style text-center">
             <p>Movie 3</p>
           </div>
         </div>
@@ -157,7 +157,7 @@ $posts = array_reverse(getPublishedPosts());
       <div class="row ">
         <?php for ($i = 0; $i < 3; $i++) : ?>
           <div class="col-lg-4 col-md-8 col-xl-4 blog-col-index">
-            <div class="container feature-box box-style blog-container wow fadeInup" data-wow-delay=".2s">
+            <div class="container  box-style blog-container wow fadeInup" data-wow-delay=".2s">
               <div class="single-blog all-published blog-index-post">
                 <img class="blog-img wow fadeInRight mb-10" data-wow-delay=".4s" src="<?php echo $posts[$i]['image']; ?>" alt="post-image">
                 <h3 class="wow fadeInLeft" data-wow-delay=".2s"><?php echo $posts[$i]['title'] ?></h3>

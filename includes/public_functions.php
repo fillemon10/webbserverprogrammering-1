@@ -14,6 +14,7 @@ function getPublishedPosts()
 
 	$final_posts = array();
 	foreach ($posts as $post) {
+		$post['username'] = getPostReviewAuthorById($post['user_id']);
 		$post['topic'] = getPostTopic($post['id']);
 		array_push($final_posts, $post);
 	}
@@ -50,6 +51,7 @@ function getPublishedPostsByTopic($topic_id)
 	$final_posts = array();
 	foreach ($posts as $post) {
 		$post['topic'] = getPostTopic($post['id']);
+		$post['username'] = getPostReviewAuthorById($post['user_id']);
 		array_push($final_posts, $post);
 	}
 	return $final_posts;
@@ -78,10 +80,12 @@ function getPost($slug)
 
 	// fetch query results as associative array.
 	$post = mysqli_fetch_assoc($result);
-	if ($post) {
-		// get the topic to which this post belongs
-		$post['topic'] = getPostTopic($post['id']);
-	}
+
+	// get the topic to which this post belongs
+	$post['topic'] = getPostTopic($post['id']);
+	$post['username'] = getPostReviewAuthorById($post['user_id']);
+
+
 	return $post;
 }
 /* * * * * * * * * * * *
@@ -128,6 +132,7 @@ function getPublishedReviews()
 	$final_reviews = array();
 	foreach ($reviews as $review) {
 		$review['genres'] = getReviewGenres($review['id']);
+		$review['username'] = getPostReviewAuthorById($review['user_id']);
 		array_push($final_reviews, $review);
 	}
 	return $final_reviews;
@@ -146,6 +151,7 @@ function getReview($slug)
 	// fetch query results as associative array.
 	$review = mysqli_fetch_assoc($result);
 	$review['genres'] = getReviewGenres($review['id']);
+	$review['username'] = getPostReviewAuthorById($review['user_id']);
 
 	return $review;
 }
@@ -178,6 +184,8 @@ function GetPublishedReviewsByType($type_id)
 	$final_reviews = array();
 	foreach ($reviews as $review) {
 		$review['genres'] = getReviewGenres($review['id']);
+		$review['username'] = getPostReviewAuthorById($review['user_id']);
+
 		array_push($final_reviews, $review);
 	}
 	return $final_reviews;
@@ -196,6 +204,7 @@ function GetPublishedReviewsByGenre($genre)
 	$final_reviews = array();
 	foreach ($reviews as $review) {
 		$review['genres'] = getReviewGenres($review['id']);
+		$review['username'] = getPostReviewAuthorById($review['user_id']);
 		array_push($final_reviews, $review);
 	}
 	return $final_reviews;
@@ -203,7 +212,8 @@ function GetPublishedReviewsByGenre($genre)
 /* * * * * * * * * * * * * * *
 * Returns all published reviews under a type and only 10/10
 * * * * * * * * * * * * * * */
-function getBestReviews($type_id) {
+function getBestReviews($type_id)
+{
 	global $conn;
 	$sql = "SELECT * FROM reviews WHERE our_rating='10' AND type='$type_id'";
 	$result = mysqli_query($conn, $sql);
@@ -212,6 +222,7 @@ function getBestReviews($type_id) {
 	$final_reviews = array();
 	foreach ($reviews as $review) {
 		$review['genres'] = getReviewGenres($review['id']);
+		$review['username'] = getPostReviewAuthorById($review['user_id']);
 		array_push($final_reviews, $review);
 	}
 	return $final_reviews;
@@ -229,3 +240,118 @@ function getAllGenres()
 	return $genres;
 }
 
+// get the author/username of a review/post
+function getPostReviewAuthorById($user_id)
+{
+	global $conn;
+
+	$sql = "SELECT username FROM users WHERE id=$user_id";
+	$result = mysqli_query($conn, $sql);
+	if ($result) {
+		// return username
+		return mysqli_fetch_assoc($result)['username'];
+	} else {
+		return null;
+	}
+}
+//get all comments from a published post
+function GetPublishedPostComments($post_id)
+{
+	global $conn;
+
+	$sql = "SELECT * FROM post_comments WHERE post_id='$post_id'";
+	$result = mysqli_query($conn, $sql);
+	$comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+	$final_comments = array();
+	foreach ($comments as $comment) {
+		$comment["username"] = getCommentUserById($comment['user_id']);
+		array_push($final_comments, $comment);
+	}
+	return array_reverse($final_comments);
+}
+// if user clicks the  post comment button
+if (isset($_POST['comment_post_btn'])) {
+	$post = getPost($_GET['post-slug']);
+	postComment($_POST, $post['id']);
+}
+function postComment($request_values, $post_id)
+{
+	global $conn, $text;
+	$errors = array();
+	$user = $_SESSION['user']['id'];
+	$text = htmlentities(htmlspecialchars($request_values['comment_post_text']));
+
+	if (empty($text)) {
+		array_push($errors, "Text is required");
+	}
+
+	// create comment if there are no errors in the form
+	if (count($errors) == 0) {
+
+		$query = "INSERT INTO post_comments (post_id, user_id, text, created_at, updated_at) 
+			VALUES('$post_id',
+			'$user', 
+			'$text', now(), now())";
+
+		mysqli_query($conn, $query);
+	}
+}
+// Get user info from user id
+function getCommentUserById($user_id)
+{
+
+	global $conn;
+
+	$sql = "SELECT username FROM users WHERE id=$user_id";
+	$result = mysqli_query($conn, $sql);
+	if ($result) {
+		// return username
+		return mysqli_fetch_assoc($result)['username'];
+	} else {
+		return null;
+	}
+}
+//get all comments from a published review
+function GetPublishedreviewComments($review_id)
+{
+	global $conn;
+
+	$sql = "SELECT * FROM review_comments WHERE review_id='$review_id'";
+	$result = mysqli_query($conn, $sql);
+	$comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+	$final_comments = array();
+	foreach ($comments as $comment) {
+		$comment["username"] = getCommentUserById($comment['user_id']);
+		array_push($final_comments, $comment);
+	}
+	return array_reverse($final_comments);
+}
+// if user clicks the  review comment button
+if (isset($_POST['comment_review_btn'])) {
+	$review = getreview($_GET['review-slug']);
+	reviewComment($_POST, $review['id']);
+}
+function reviewComment($request_values, $review_id)
+{
+	global $conn, $text;
+	$errors = array();
+	$user = $_SESSION['user']['id'];
+	$text = htmlentities(htmlspecialchars($request_values['comment_review_text']));
+
+	if (empty($text)) {
+		array_push($errors, "Text is required");
+	}
+
+	// create comment if there are no errors in the form
+	if (count($errors) == 0) {
+
+		$query = "INSERT INTO review_comments (review_id, user_id, text, created_at, updated_at) 
+			VALUES('$review_id',
+			'$user', 
+			'$text', now(), now())";
+
+		mysqli_query($conn, $query);
+	}
+}

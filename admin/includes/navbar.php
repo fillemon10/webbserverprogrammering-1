@@ -35,14 +35,13 @@
                             <li class="nav-item">
                                 <a href="<?php echo BASE_URL . 'admin/users.php' ?>">Manage Users</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="<?php echo BASE_URL . 'index.php' ?>">Back to Cinemania</a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="page-scroll dd-menu" href="javascript:void(0)"><?php echo $_SESSION['user']['username'] ?></a>
 
                                 <ul class="sub-menu">
                                     <li class="nav-item"> <a class="page-scroll" href="../myaccount.php"><i class="lni lni-cog dark-red"></i>&#8192;My Account</a></li>
+                                    <li class="nav-item"> <a class="page-scroll" href="../index.php"><i class="lni lni-bolt-alt dark-red"></i>&#8192;Back to Cinemania</a></li>
                                     <li class="nav-item"> <a class="page-scroll" href="../logout.php"><i class="lni lni-exit dark-red"></i>&#8192;Logout</a></li>
                                 </ul>
                             </li>

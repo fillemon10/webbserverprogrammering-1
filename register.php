@@ -20,11 +20,11 @@ require_once("includes/head.php");
             <div class="row">
                 <div class="col-xl-2 col-lg-2 col-md-2 mx-auto"></div>
                 <div class="col-xl-8 col-lg-8 col-md-8 mx-auto">
-                    <div class="container feature-box box-style pt-15 pb-15">
+                    <div class="container  box-style pt-15 pb-15">
 
                         <form class="form-form" method="post" action="register.php">
                             <div class="container">
-                                <h3>Register on Cinemania</h3>
+                                <h2>Register on Cinemania</h2>
 
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-6 col-md-6">
@@ -68,7 +68,7 @@ require_once("includes/head.php");
 </body>
 
 </html>
-<div class="container feature-box box-style w-50 pt-15">
+<div class="container  box-style w-50 pt-15">
 
 
     <p>Already a member? <a href="login.php">Sign in</a></p>

@@ -33,12 +33,7 @@
                                 <a class="page-scroll" href="blog.php">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="page-scroll dd-menu" href="javascript:void(0)">About</a>
-
-                                <ul class="sub-menu">
-                                    <li class="nav-item"><a href="about.php">About Us</a></li>
-                                    <li class="nav-item"><a href="license.php">License</a></li>
-                                </ul>
+                                <a href="about.php">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="page-scroll" href="contact.php">Contact</a>
@@ -55,12 +50,15 @@
 
                                     <ul class="sub-menu">
                                         <li class="nav-item"> <a class="page-scroll" href="myaccount.php"><i class="lni lni-cog dark-red"></i>&#8192;My Account</a></li>
+                                        <?php if (in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) { ?>
+                                            <li class="nav-item"> <a class="page-scroll" href="admin/dashboard.php"><i class="lni lni-bolt-alt dark-red"></i>&#8192;CineAdmin</a></li>
+                                        <?php } ?>
                                         <li class="nav-item"> <a class="page-scroll" href="logout.php"><i class="lni lni-exit dark-red"></i>&#8192;Logout</a></li>
                                     </ul>
                                 </li>
                             <?php } else { ?>
                                 <li class="nav-item">
-                                    <a class="page-scroll theme-btn login-btn" href="login.php"><i class="lni lni-user"></i>&#8192;Login</a>
+                                    <a class="page-scroll theme-btn login-btn" href="login.php"><i class="lni lni-enter"></i>&#8192;Login</a>
                                 </li>
                             <?php } ?>
                         </ul>
