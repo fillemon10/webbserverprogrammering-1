@@ -43,9 +43,9 @@
                                 <a class="page-scroll dd-menu" href="javascript:void(0)"><?php echo $_SESSION['user']['username'] ?></a>
 
                                 <ul class="sub-menu">
-                                    <li class="nav-item"> <a class="page-scroll" href="../myaccount"><i class="lni lni-cog dark-red"></i>&#8192;My Account</a></li>
-                                    <li class="nav-item"> <a class="page-scroll" href="../index"><i class="lni lni-bolt-alt dark-red"></i>&#8192;Back to Cinemania</a></li>
-                                    <li class="nav-item"> <a class="page-scroll" href="../logout"><i class="lni lni-exit dark-red"></i>&#8192;Logout</a></li>
+                                    <li class="nav-item"> <a class="page-scroll" href="../myaccount"><i class="fas fa-cog dark-red"></i>&#8192;My Account</a></li>
+                                    <li class="nav-item"> <a class="page-scroll" href="../index"><i class="fas fa-arrow-circle-left dark-red"></i>&#8192;Back to Cinemania</a></li>
+                                    <li class="nav-item"> <a class="page-scroll" href="../logout"><i class="fas fa-sign-out-alt dark-red"></i>&#8192;Logout</a></li>
                                 </ul>
                             </li>
                         </ul>

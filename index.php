@@ -5,11 +5,6 @@ require_once("includes/head.php");
 require_once('includes/public_functions.php');
 $posts = array_reverse(getPublishedPosts());
 ?>
-
-
-
-
-<body>
   <!-- ========================= header start ========================= -->
   <?php include("includes/navbar.php") ?>
   <!-- ========================= header end ========================= -->

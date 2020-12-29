@@ -23,7 +23,7 @@ require_once("includes/head.php");
                             <div class="col-12 col-md-6 col-xl-12">
                                 <div class="contact-item">
                                     <div class="contact-icon">
-                                        <i class="lni lni-phone"></i>
+                                        <i class="fas fa-phone"></i>
                                     </div>
                                     <div class="contact-content">
                                         <h4>Contact</h4>
@@ -35,7 +35,7 @@ require_once("includes/head.php");
                             <div class="col-12 col-md-6 col-xl-12">
                                 <div class="contact-item">
                                     <div class="contact-icon">
-                                        <i class="lni lni-map-marker"></i>
+                                        <i class="fas fa-map-marker"></i>
                                     </div>
                                     <div class="contact-content">
                                         <h4>Address</h4>
@@ -47,7 +47,7 @@ require_once("includes/head.php");
                             <div class="col-12 col-md-6 col-xl-12">
                                 <div class="contact-item">
                                     <div class="contact-icon">
-                                        <i class="lni lni-alarm-clock"></i>
+                                        <i class="fas fa-alarm-clock"></i>
                                     </div>
                                     <div class="contact-content">
                                         <h4>Shedule</h4>

@@ -193,7 +193,7 @@ if (isset($_GET['type'])) {
 			} else {
 				$title = "Best Streaming/TV";
 			}
-			$reviews = GetBestReviews($type_id);
+			$reviews = array_reverse(GetBestReviews($type_id));
 		}
 	} else {
 		$reviews = array_reverse(GetPublishedReviewsByType($type_id));

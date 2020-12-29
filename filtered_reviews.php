@@ -16,11 +16,11 @@
     <!-- ========================= blog-section start ========================= -->
     <section class="review-section pt-50 pb-20">
         <?php foreach ($reviews as $review) : ?>
-            <div class="container  box-style review-container wow fadeInup" data-wow-delay=".2s">
+            <div class="container  box-style review-container ">
                 <div class="single-review all-published">
                     <div class="row">
                         <div class="col-xl-10 col-lg-9 col-md-8 section-title">
-                            <p class="wow fadeInDown" data-wow-delay=".4s"><i class="p-mask lni lni-calendar"></i>&#8192;<?php echo date("F j, Y ", strtotime($review["created_at"])); ?>&#8192;&#8192;<i class="p-mask lni lni-user"></i>&#8192;<?php echo $review["username"]  ?></p>
+                            <p class="wow fadeInDown" data-wow-delay=".4s"><i class="p-mask fas fa-calendar-alt"></i>&#8192;<?php echo date("F j, Y ", strtotime($review["created_at"])); ?>&#8192;&#8192;<i class="p-mask fas fa-user"></i>&#8192;<?php echo $review["username"]  ?></p>
                             <?php
                             if (count($review["genres"]) > 1) {
                                 foreach ($review["genres"] as $key => $genre) { ?>

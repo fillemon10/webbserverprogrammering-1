@@ -12,11 +12,11 @@ if (isset($_GET['review-slug'])) {
     $title = "Not Published";
 } else {
     $title = $review['title'];
-    $review_or_post ="review";
+    $review_or_post = "review";
 }
 ?>
 <?php $movie = $omdb->get_by_id($review['imdb_id']);
-$comments = GetPublishedComments($review['id'] ,"review");
+$comments = GetPublishedComments($review['id'], "review");
 ?>
 
 <?php include('includes/head.php'); ?>
@@ -30,7 +30,7 @@ $comments = GetPublishedComments($review['id'] ,"review");
 
     <!-- ========================= review-section start ========================= -->
     <section id="review" class="review-section mt-100 pt-50 pb-20">
-        <div class="container  box-style review-container wow fadeInup" data-wow-delay=".2s">
+        <div class="container  box-style review-container wow fadeInUp">
             <div class="single-review pb-15">
                 <div class="row">
                     <?php include('includes/errors.php') ?>
@@ -38,11 +38,11 @@ $comments = GetPublishedComments($review['id'] ,"review");
                     <?php if (isset($review['published']) == false) : ?>
                         <h2>Sorry... This review has not been published</h2>
                         <div class="col-4 mt-20">
-                            <a href="review" class="theme-btn readmore-btn"><i class="lni lni-arrow-left"></i>&#8192;Back to review</a>
+                            <a href="review" class="theme-btn readmore-btn"><i class="fas fa-arrow-left"></i>&#8192;Back to review</a>
                         </div>
                     <?php else : ?>
                         <div class="col-xl-8 col-lg-8 col-md-8 section-title">
-                            <p class="wow fadeInDown" data-wow-delay=".4s"><i class="p-mask lni lni-calendar"></i>&#8192;<?php echo date("F j, Y ", strtotime($review["created_at"])); ?>&#8192;&#8192;<i class="p-mask lni lni-user"></i>&#8192;<?php echo $review["username"]  ?></p>
+                            <p class="wow fadeInDown" data-wow-delay=".4s"><i class="p-mask fas fa-calendar-alt"></i>&#8192;<?php echo date("F j, Y ", strtotime($review["created_at"])); ?>&#8192;&#8192;<i class="p-mask fas fa-user"></i>&#8192;<?php echo $review["username"]  ?></p>
                             <?php
                             if (count($review["genres"]) > 1) {
                                 foreach ($review["genres"] as $key => $genre) { ?>
@@ -61,7 +61,7 @@ $comments = GetPublishedComments($review['id'] ,"review");
 
                             <div class="wow fadeInLeft" data-wow-delay=".6s"><?php echo htmlspecialchars_decode($review['body']) ?></div>
                             <p class="wow fadeInLeft mt-10" data-wow-delay=".6s"><strong>Plot: </strong><?php echo $movie['Plot'] ?></p>
-                            <a href="reviews" class="theme-btn readmore-btn mt-10 mb-10"><i class="lni lni-arrow-left"></i>&#8192;Back to reviews</a>
+                            <a href="reviews" class="theme-btn readmore-btn mt-10 mb-10"><i class="fas fa-arrow-left"></i>&#8192;Back to reviews</a>
 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4">

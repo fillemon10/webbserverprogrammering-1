@@ -75,13 +75,13 @@ $topics = getAllTopics();
 
 											<td>
 												<a class=" btn btn-primary" href="topics?edit-topic=<?php echo $topic['id'] ?>">
-							<i class=" lni lni-pencil"></i>
+							<i class=" fas fa-edit"></i>
 							</a>
 							</td>
 
 							<td>
 								<a class=" btn btn-danger" href="topics?delete-topic=<?php echo $topic['id'] ?>">
-									<i class=" lni lni-trash"></i>
+									<i class=" fas fa-trash"></i>
 								</a>
 							</td>
 						<?php } ?>

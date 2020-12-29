@@ -6,6 +6,7 @@ require_once("includes/head.php");
 ?>
 
 <body class="<?php echo $themeClass ?>">
+
     <!-- ========================= header start ========================= -->
     <?php include("includes/navbar.php") ?>
     <!-- ========================= header end ========================= -->
@@ -13,6 +14,7 @@ require_once("includes/head.php");
     <!-- ========================= page-banner-section start ========================= -->
     <?php include("includes/banner.php") ?>
     <!-- ========================= page-banner-section end ========================= -->
+
 
     <!-- ========================= feature-section start ========================= -->
     <section class="feature-section pt-130">
@@ -31,7 +33,7 @@ require_once("includes/head.php");
                 <div class="col-lg-4 col-md-6">
                     <div class=" box-style">
                         <div class="feature-icon box-icon-style">
-                            <i class="lni lni-layers"></i>
+                            <i class="fas fa-layers"></i>
                         </div>
                         <div class="box-content-style feature-content">
                             <h4>Responsive Design</h4>
@@ -43,7 +45,7 @@ require_once("includes/head.php");
                 <div class="col-lg-4 col-md-6">
                     <div class=" box-style">
                         <div class="feature-icon box-icon-style">
-                            <i class="lni lni-code-alt"></i>
+                            <i class="fas fa-code-alt"></i>
                         </div>
                         <div class="box-content-style feature-content">
                             <h4>Web Development</h4>
@@ -55,7 +57,7 @@ require_once("includes/head.php");
                 <div class="col-lg-4 col-md-6">
                     <div class=" box-style">
                         <div class="feature-icon box-icon-style">
-                            <i class="lni lni-agenda"></i>
+                            <i class="fas fa-agenda"></i>
                         </div>
                         <div class="box-content-style feature-content">
                             <h4>Business Analysis</h4>

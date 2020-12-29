@@ -18,11 +18,11 @@ $posts = array_reverse(getPublishedPosts());
   <!-- ========================= blog-section start ========================= -->
   <section id="blog" class="blog-section pt-50 pb-20">
     <?php foreach ($posts as $post) : ?>
-      <div class="container  box-style blog-container wow fadeInup" data-wow-delay=".2s">
+      <div class="container  box-style blog-container">
         <div class="single-blog all-published">
           <div class="row">
             <div class="col-xl-8 col-lg-8 col-md-8 section-title">
-              <p class="wow fadeInDown" data-wow-delay=".4s"><i class="p-mask lni lni-calendar"></i>&#8192;<?php echo date("F j, Y ", strtotime($post["created_at"])); ?>&#8192;&#8192;<i class="p-mask lni lni-user"></i>&#8192;<?php echo $post["username"]  ?></p>
+              <p class="wow fadeInDown" data-wow-delay=".4s"><i class="p-mask fas fa-calendar-alt"></i>&#8192;<?php echo date("F j, Y ", strtotime($post["created_at"])); ?>&#8192;&#8192;<i class="p-mask fas fa-user"></i>&#8192;<?php echo $post["username"]  ?></p>
 
               <div class="row">
                 <a class="mb-0" href="single_post?post-slug=<?php echo $post['slug']; ?>">

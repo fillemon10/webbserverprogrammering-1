@@ -41,7 +41,7 @@
                             <li class="nav-item">
                                 <form action="search?<?php echo $_POST["search"]  ?>" class="search-form">
                                     <input name="search" type="text" placeholder="Search" />
-                                    <button type="submit"><i class="lni lni-search-alt"></i></button>
+                                    <button type="submit"><i class="fas fa-search"></i></button>
                                 </form>
                             </li>
                             <?php if (isset($_SESSION['user']['username'])) { ?>
@@ -49,16 +49,16 @@
                                     <a class="page-scroll dd-menu" href="javascript:void(0)"><?php echo $_SESSION['user']['username'] ?></a>
 
                                     <ul class="sub-menu">
-                                        <li class="nav-item"> <a class="page-scroll" href="myaccount"><i class="lni lni-cog dark-red"></i>&#8192;My Account</a></li>
+                                        <li class="nav-item"> <a class="page-scroll" href="myaccount"><i class="fas fa-cog dark-red"></i>&#8192;My Account</a></li>
                                         <?php if (in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) { ?>
-                                            <li class="nav-item"> <a class="page-scroll" href="admin/dashboard"><i class="lni lni-bolt-alt dark-red"></i>&#8192;CineAdmin</a></li>
+                                            <li class="nav-item"> <a class="page-scroll" href="admin/dashboard"><i class="fas fa-users-cog dark-red"></i>&#8192;CineAdmin</a></li>
                                         <?php } ?>
-                                        <li class="nav-item"> <a class="page-scroll" href="logout"><i class="lni lni-exit dark-red"></i>&#8192;Logout</a></li>
+                                        <li class="nav-item"> <a class="page-scroll" href="logout"><i class="fas fa-sign-out-alt dark-red"></i>&#8192;Logout</a></li>
                                     </ul>
                                 </li>
                             <?php } else { ?>
                                 <li class="nav-item">
-                                    <a class="page-scroll theme-btn login-btn" href="login"><i class="lni lni-enter"></i>&#8192;Login</a>
+                                    <a class="page-scroll theme-btn login-btn" href="login"><i class="fas fa-sign-in-alt"></i>&#8192;Login</a>
                                 </li>
                             <?php } ?>
                         </ul>

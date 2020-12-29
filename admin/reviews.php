@@ -63,21 +63,21 @@ $reviews = getAllreviews();
                                     <?php
                                     if ($review['published'] == true) : ?>
                                         <a class="publish  btn btn-success" href="reviews?publish=<?php echo $review['id'] ?>">
-                                            <i class="lni lni-checkmark"></i> </a>
+                                            <i class="fas fa-check"></i> </a>
                                     <?php else : ?>
                                         <a class="unpublish btn btn-danger" href="reviews?unpublish=<?php echo $review['id'] ?>">
-                                            <i class="lni lni-close"></i> </a>
+                                            <i class="fas fa-times"></i> </a>
                                     <?php endif ?>
                                 </td>
                                 <td>
                                     <a class="edit btn btn-primary" href="create_review?edit-review=<?php echo $review['id'] ?>">
-                                        <i class="lni lni-pencil"></i>
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                                 <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
                                     <td>
                                         <a class="delete btn btn-danger" href="create_review?delete-review=<?php echo $review['id'] ?>">
-                                            <i class=" lni lni-trash"></i>
+                                            <i class=" fas fa-trash"></i>
                                         </a>
                                     </td>
                                 <?php } ?>

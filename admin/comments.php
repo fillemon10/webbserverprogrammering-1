@@ -67,18 +67,18 @@ $post_comments = getPostComments();
                                 <td>
                                     <?php if ($comment['published'] == true) : ?>
                                         <a class="publish  btn btn-success" href="comments?publish_review=<?php echo $comment['id'] ?>">
-                                            <i class="lni lni-checkmark"></i> </a>
+                                            <i class="fas fa-check"></i> </a>
                                     <?php else : ?>
 
                                         <a class="unpublish btn btn-danger" href="comments?unpublish_review=<?php echo $comment['id'] ?>">
-                                            <i class="lni lni-close"></i> </a>
+                                            <i class="fas fa-times"></i> </a>
                                     <?php endif ?>
                                 </td>
 
                                 <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
                                     <td>
                                         <a class="delete btn btn-danger" href="comments?delete-review-comment=<?php echo $comment['id'] ?>">
-                                            <i class=" lni lni-trash"></i>
+                                            <i class=" fas fa-trash"></i>
                                         </a>
                                     </td>
                                 <?php } ?>
@@ -95,18 +95,18 @@ $post_comments = getPostComments();
                                     <td>
                                         <?php if ($reply['published'] == true) : ?>
                                             <a class="publish  btn btn-success" href="comments?publish_review_reply=<?php echo $reply['id'] ?>">
-                                                <i class="lni lni-checkmark"></i> </a>
+                                                <i class="fas fa-check"></i> </a>
                                         <?php else : ?>
 
                                             <a class="unpublish btn btn-danger" href="comments?unpublish_review_reply=<?php echo $reply['id'] ?>">
-                                                <i class="lni lni-close"></i> </a>
+                                                <i class="fas fa-times"></i> </a>
                                         <?php endif ?>
                                     </td>
 
                                     <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
                                         <td>
                                             <a class="delete btn btn-danger" href="comments?delete-review-reply=<?php echo $reply['id'] ?>">
-                                                <i class=" lni lni-trash"></i>
+                                                <i class=" fas fa-trash"></i>
                                             </a>
                                         </td>
                                     <?php } ?>
@@ -163,18 +163,18 @@ $post_comments = getPostComments();
                                 <td>
                                     <?php if ($post_comment['published'] == true) : ?>
                                         <a class="publish  btn btn-success" href="comments?publish_post=<?php echo $post_comment['id'] ?>">
-                                            <i class="lni lni-checkmark"></i> </a>
+                                            <i class="fas fa-check"></i> </a>
                                     <?php else : ?>
 
                                         <a class="unpublish btn btn-danger" href="comments?unpublish_post=<?php echo $post_comment['id'] ?>">
-                                            <i class="lni lni-close"></i> </a>
+                                            <i class="fas fa-times"></i> </a>
                                     <?php endif ?>
                                 </td>
 
                                 <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
                                     <td>
                                         <a class="delete btn btn-danger" href="comments?delete-post=<?php echo $post_comment['id'] ?>">
-                                            <i class=" lni lni-trash"></i>
+                                            <i class=" fas fa-trash"></i>
                                         </a>
                                     </td>
                                 <?php } ?>

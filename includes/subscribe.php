@@ -10,7 +10,7 @@
             <div class="col-xl-6 col-lg-6">
                 <form action="#" class="subscribe-form wow fadeInRight" data-wow-delay=".4s">
                     <input type="text" name="subs-email" id="subs-email" placeholder="Your Email" />
-                    <button type="submit"><i class="lni lni-telegram-original"></i></button>
+                    <button type="submit"><i class="fas fa-telegram-original"></i></button>
                 </form>
             </div>
         </div>

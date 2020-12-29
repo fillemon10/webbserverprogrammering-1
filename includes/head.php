@@ -23,8 +23,6 @@ if (@strtotime($ifModifiedSince) == $lastModified || $etagHeader == $etagFile) {
   header("HTTP/1.1 304 Not Modified");
   exit;
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +33,9 @@ if (@strtotime($ifModifiedSince) == $lastModified || $etagHeader == $etagFile) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png" />
   <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-alpha.min.css">
-  <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/animate.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
-
-  
-
   <title><?php echo $title ?> | Cinemania</title>
   <meta name="description" content="" />
 </head>

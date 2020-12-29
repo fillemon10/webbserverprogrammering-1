@@ -93,13 +93,13 @@
                                                 <td><?php echo $admin['role']; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary edit" href="users?edit-admin=<?php echo $admin['id'] ?>">
-                                                        <i class="lni lni-pencil"></i>
+                                                        <i class="fas fa-edit"></i>
 
                                                     </a>
                                                 </td>
                                                 <td>
                                                     <a class="btn btn-danger delete" href="users?delete-admin=<?php echo $admin['id'] ?>">
-                                                        <i class="lni lni-trash"></i>
+                                                        <i class="fas fa-trash"></i>
 
                                                     </a>
                                                 </td>

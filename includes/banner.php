@@ -1,4 +1,4 @@
-<section class="page-banner-section pt-30 pb-15 img-bg wow fadeInDown" data-wow-delay=".1s" style="background-image: url('assets/img/bg/common-bg.svg')">
+<section class="page-banner-section pt-30 pb-15 img-bg wow fadeInDown" style="background-image: url('assets/img/bg/common-bg.svg')">
   <div class="container">
     <div class="row">
       <div class="col-xl-12">
