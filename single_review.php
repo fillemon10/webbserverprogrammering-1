@@ -12,10 +12,11 @@ if (isset($_GET['review-slug'])) {
     $title = "Not Published";
 } else {
     $title = $review['title'];
+    $review_or_post ="review";
 }
 ?>
 <?php $movie = $omdb->get_by_id($review['imdb_id']);
-$comments = GetPublishedReviewComments($review['id']);
+$comments = GetPublishedComments($review['id'] ,"review");
 ?>
 
 <?php include('includes/head.php'); ?>
@@ -30,10 +31,10 @@ $comments = GetPublishedReviewComments($review['id']);
     <!-- ========================= review-section start ========================= -->
     <section id="review" class="review-section mt-100 pt-50 pb-20">
         <div class="container  box-style review-container wow fadeInup" data-wow-delay=".2s">
-            <?php include('includes/errors.php') ?>
-            <?php include(ROOT_PATH . '/includes/messages.php') ?>
-            <div class="single-review">
+            <div class="single-review pb-15">
                 <div class="row">
+                    <?php include('includes/errors.php') ?>
+                    <?php include(ROOT_PATH . '/includes/messages.php') ?>
                     <?php if (isset($review['published']) == false) : ?>
                         <h2>Sorry... This review has not been published</h2>
                         <div class="col-4 mt-20">
@@ -88,54 +89,9 @@ $comments = GetPublishedReviewComments($review['id']);
                             <img class=" box-style p-0 poster-img wow fadeInRight" data-wow-delay="1s" src="<?php echo $review['poster']; ?>" alt="poster-<?php echo  str_replace(" ", "-", strtolower($review["title_of"])); ?>">
                         </div>
                 </div>
-                <div class="row mt-20">
-                    <h3>Comments</h3>
-                    <form class="box-style mb-10" action="" method="POST">
-                        <h5>Leave a comment</h5>
-                        <div class="form-group">
-                            <textarea class="form-control" name="comment_review_text" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 138px;"></textarea>
-                        </div>
-                        <button type="submit" class="theme-btn mt-10  wow fadeInUp" data-wow-delay="0.5s" name="comment_review_btn">Post Comment</button>
-                    </form>
-                    <?php foreach ($comments as $comment) { ?>
-                        <div class="container box-style comment mb-10 mt-10">
-                            <div class="row">
-                                <div class="col-xl-10 col-lg-10 col-md-10">
-                                    <p class="wow fadeInDown lead" data-wow-delay=".2s"><?php echo $comment['text'] ?></p>
-                                    <p class="wow fadeInDown " data-wow-delay=".4s"><i class="p-mask lni lni-calendar"></i>&#8192;<?php echo date("F j, Y ", strtotime($comment["created_at"])); ?>&#8192;&#8192;<i class="p-mask lni lni-user"></i>&#8192;<?php echo $comment["username"]  ?></p>
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-2">
-                                    <button class="float-right reply-btn <?php echo $comment['id'] ?>">
-                                        <i class="lni lni-reply"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div hidden class="container reply-form">
-                                <div class="row">
-                                    <form action="single_review?review-slug=<?php echo $review['slug']; ?>&reply-review=<?php echo $comment['id'] ?>" method="POST">
-                                        <div class="form-group">
-                                            <textarea class="form-control" name="reply_review_text" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 138px;"></textarea>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <button type="submit" class="theme-btn mt-10 mb-10 post-reply" name="reply_review_btn">Reply</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <?php
-                            $replies = GetPublishedReviewReplies($comment['id']);
-                            foreach ($replies as $reply) { ?>
-                                <div class="container box-style comment mt-10 mb-0">
-                                    <p class="wow fadeInDown lead" data-wow-delay=".2s"><?php echo $reply['text'] ?></p>
-                                    <p class="wow fadeInDown " data-wow-delay=".4s"><i class="p-mask lni lni-calendar"></i>&#8192;<?php echo date("F j, Y ", strtotime($reply["created_at"])); ?>&#8192;&#8192;<i class="p-mask lni lni-user"></i>&#8192;<?php echo $reply["username"]  ?></p>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    <?php } ?>
-                </div>
+                <!-- ========================= comment-section start ========================= -->
+                <?php include("includes/comments.php") ?>
+                <!-- ========================= comment-section end ========================= -->
             <?php endif ?>
             </div>
         </div>
@@ -151,7 +107,6 @@ $comments = GetPublishedReviewComments($review['id']);
     <!-- ========================= footer end  ========================= -->
 
     <?php include("includes/js.php") ?>
-    <script src="assets/js/reply.js"></script>
 </body>
 
 </html>

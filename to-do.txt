@@ -27,7 +27,6 @@ Moderator
         -edit or add users
         edit your own reviews and blog posts
 
-
 Author
     write reviews and blog posts
     edit your own reviews and blog posts

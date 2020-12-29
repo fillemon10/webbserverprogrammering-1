@@ -84,8 +84,6 @@ if ($haserrors) {
             padding: 0.5em;
         }
 
-        .ok {}
-
         .warning {
             font-weight: bold;
         }

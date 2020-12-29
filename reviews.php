@@ -49,7 +49,7 @@ $reviews = array_reverse(getPublishedReviews());
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-3 col-md-4 text-right">
-                            <img class=" box-style p-0 poster-img wow fadeInRight" data-wow-delay=".4s" src="<?php echo $review['poster']; ?>" alt="poster-<?php echo  str_replace(" ", "-", strtolower($review["title_of"])); ?>">
+                            <img class=" box-style p-0 poster-img wow fadeInRight mb-0" data-wow-delay=".4s" src="<?php echo $review['poster']; ?>" alt="poster-<?php echo  str_replace(" ", "-", strtolower($review["title_of"])); ?>">
                         </div>
                     </div>
                 </div>

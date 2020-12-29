@@ -17,6 +17,10 @@ $posts = array_reverse(getPublishedPosts());
   <!-- ========================= hero-section start ========================= -->
   <section id="home" class="hero-section">
     <div class="container">
+      <div class="row w-50">
+        <?php include('includes/errors.php') ?>
+        <?php include(ROOT_PATH . '/includes/messages.php') ?>
+      </div>
       <div class="row align-items-center">
         <div class="col-xl-5 col-lg-6">
           <div class="hero-content-wrapper">

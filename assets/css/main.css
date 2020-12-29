@@ -31,7 +31,7 @@ body {
   
   font-weight: normal;
   font-style: normal;
-  color: #7a5858;
+  color: #523b3b;
   overflow-x: hidden;
 }
 
@@ -161,14 +161,14 @@ p {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  color: #443131;
+  color: #523b3b;
   margin: 0px;
 }
 .p-mask {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  color: #553d3d;
+  color: #523b3b;
   margin: 0px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -194,12 +194,12 @@ p {
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .container {
-    width: 450px;
+    min-width: 450px;
   }
 }
 
 .gray-bg {
-  background: #eff2f9;
+  background: #f9efef;
 }
 
 .alert-link {
@@ -256,7 +256,7 @@ p {
   padding: 14px 40px;
   background: transparent;
   border: 1.5px solid #eb3737;
-  color: #6a7c92;
+  color: #926a6a;
   font-size: 18px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -1062,7 +1062,9 @@ p {
 .pb-225 {
   padding-bottom: 225px;
 }
-
+.p-10 {
+  padding:10px !important;
+}
 /*===========================
     02. Header CSS 
 ===========================*/
@@ -1084,7 +1086,7 @@ p {
 .sticky {
   position: fixed;
   z-index: 99;
-  background: #3763eb;
+  background: #eb3737;
   -webkit-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
@@ -1178,9 +1180,9 @@ p {
     width: 100%;
     background-color: #fff;
     z-index: 9;
-    -webkit-box-shadow: 0px 15px 20px 0px rgba(5, 20, 65, 0.1);
-    -moz-box-shadow: 0px 15px 20px 0px rgba(5, 20, 65, 0.1);
-    box-shadow: 0px 15px 20px 0px rgba(5, 20, 65, 0.1);
+    -webkit-box-shadow: 0px 15px 20px 0px rgba(65, 5, 5, 0.1);
+    -moz-box-shadow: 0px 15px 20px 0px rgba(65, 5, 5, 0.1);
+    box-shadow: 0px 15px 20px 0px rgba(65, 5, 5, 0.1);
     padding: 5px 12px;
     max-height: 350px;
     overflow-y: scroll;
@@ -1457,9 +1459,9 @@ p {
   transition: all 0.3s ease-out 0s;
 }
 .search-form input:focus {
-  -webkit-box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
-  -moz-box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
-  box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
+  -webkit-box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
+  -moz-box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
+  box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
 }
 .search-form button {
   background: none;
@@ -1622,7 +1624,7 @@ p {
   }
 }
 .hero-section.hero-section-2 .border-btn:hover {
-  background: rgba(55, 99, 235, 0.7);
+  background: rgba(235, 55, 55, 0.7);
   color: #fff;
 }
 
@@ -1857,7 +1859,7 @@ p {
   font-size: 16px;
   font-weight: 700;
   color: #410505;
-  box-shadow: 0px 0px 47px rgba(161, 192, 255, 0.16);
+  box-shadow: 0px 0px 47px rgba(255, 161, 161, 0.16);
 }
 @media (max-width: 767px) {
   .blog-section .blog-btn ul li.nav-item a {
@@ -1911,7 +1913,7 @@ p {
   padding: 30px;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0px 0px 47px rgba(161, 192, 255, 0.16);
+  box-shadow: 0px 0px 47px rgba(255, 161, 161, 0.16);
   position: relative;
   z-index: 1;
 }
@@ -1967,6 +1969,9 @@ p {
 .comment {
   padding: 15px !important;
 }
+.comment-info {
+  font-size: 10px !important; 
+}
 .reply-btn {
   display: inline-block;
   font-weight: 400;
@@ -2019,7 +2024,7 @@ p {
   font-size: 16px;
   font-weight: 700;
   color: #410505;
-  box-shadow: 0px 0px 47px rgba(161, 192, 255, 0.16);
+  box-shadow: 0px 0px 47px rgba(255, 161, 161, 0.16);
 }
 @media (max-width: 767px) {
   .review-section .review-btn ul li.nav-item a {
@@ -2073,7 +2078,7 @@ p {
   padding: 30px;
   border-radius: 10px;
   background: #fff;
-  box-shadow: 0px 0px 47px rgba(161, 192, 255, 0.16);
+  box-shadow: 0px 0px 47px rgba(255, 161, 161, 0.16);
   position: relative;
   z-index: 1;
 }
@@ -2221,7 +2226,7 @@ p {
 }
 .contact-section .contact-item-wrapper .contact-item {
   display: flex;
-  border: 1px solid #f4eefb;
+  border: 1px solid #fbeeee;
   border-radius: 10px;
   background: #fff;
   margin-bottom: 30px;
@@ -2314,9 +2319,9 @@ p {
 }
 .comment-form-wrapper:hover,
 .contact-form-wrapper:hover {
-  -webkit-box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
-  -moz-box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
-  box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
+  -webkit-box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
+  -moz-box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
+  box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .comment-form-wrapper,
@@ -2440,7 +2445,7 @@ p {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(to right, rgba(111, 88, 232, 0.8) 0%, #3763eb 100%);
+  background: linear-gradient(to right, rgba(232, 88, 88, 0.8) 0%, #eb3737 100%);
 }
 .carousel-section-wrapper .carousel-section.carousel-item .carousel-content .section-title h2 {
   margin-bottom: 25px;
@@ -2609,7 +2614,7 @@ p {
   border-radius: 50%;
   text-align: center;
   line-height: 45px;
-  background: rgba(106, 124, 146, 0.1);
+  background: rgba(146, 106, 106, 0.1);
   display: block;
   font-size: 18px;
   color: #926a6a;
@@ -2694,7 +2699,7 @@ p {
   }
 }
 .form-form input:focus {
-  -webkit-box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
-  -moz-box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
-  box-shadow: 0px 0px 30px rgba(215, 224, 252, 0.45);
+  -webkit-box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
+  -moz-box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
+  box-shadow: 0px 0px 30px rgba(252, 215, 215, 0.45);
 }

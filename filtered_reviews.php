@@ -1,37 +1,6 @@
 <?php include('config.php'); ?>
 <?php include('includes/public_functions.php'); ?>
 <?php $filtered_reviews = array() ?>
-<?php
-// Get posts under a particular topic
-if (isset($_GET['type'])) {
-    $type = $_GET['type'];
-    if ($type == 'movie') {
-        $type_id = 0;
-        $title = "Movie";
-    } else {
-        $type_id = 1;
-        $title = "Streaming/TV";
-    }
-    if (isset($_GET['best'])) {
-        $best = $_GET['best'];
-        if ($best == 1) {
-            if ($type == 'movie') {
-                $title = "Best Movies";
-            } else {
-                $title = "Best Streaming/TV";
-            }
-            $reviews = GetBestReviews($type_id);
-        }
-    } else {
-        $reviews = array_reverse(GetPublishedReviewsByType($type_id));
-    }
-} elseif (isset($_GET['genre'])) {
-    $genre = ucfirst($_GET['genre']);
-    $title = $genre;
-    $reviews = array_reverse(GetPublishedReviewsByGenre($genre));
-}
-
-?>
 <?php include('includes/head.php'); ?>
 
 <body>
@@ -58,7 +27,7 @@ if (isset($_GET['type'])) {
                                     <a class="font-weight-bold wow fadeInLeft mb-0 mt-10 red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews?genre=' . strtolower($review["genres"][$key]) ?>"><?php echo $review["genres"][$key] ?></a>
                                 <?php }
                             } else { ?>
-                                <a class="wow fadeInLeft red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews?genre=' . strtolower($review["genres"][0]) ?>"><?php echo $review["genres"][0] ?></a>
+                                <a class="font-weight-bold wow fadeInLeft red mb-0 mt-10" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews?genre=' . strtolower($review["genres"][0]) ?>"><?php echo $review["genres"][0] ?></a>
                             <?php } ?>
                             <div class="row">
                                 <a class="mb-0" href="single_review?review-slug=<?php echo $review['slug']; ?>">

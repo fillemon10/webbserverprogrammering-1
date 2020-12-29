@@ -39,6 +39,8 @@ if (@strtotime($ifModifiedSince) == $lastModified || $etagHeader == $etagFile) {
   <link rel="stylesheet" href="assets/css/animate.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
 
+  
+
   <title><?php echo $title ?> | Cinemania</title>
   <meta name="description" content="" />
 </head>

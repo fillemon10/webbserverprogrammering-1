@@ -1,11 +1,7 @@
 <?php include('config.php'); ?>
 <?php include('includes/public_functions.php'); ?>
 <?php
-// Get posts under a particular topic
-if (isset($_GET['topic'])) {
-    $topic_id = $_GET['topic'];
-    $posts = array_reverse(getPublishedPostsByTopic($topic_id));
-}
+
 $title = getTopicNameById($topic_id);
 ?>
 <?php include('includes/head.php'); ?>
@@ -40,7 +36,7 @@ $title = getTopicNameById($topic_id);
                             <a href="single_post?post-slug=<?php echo $post['slug']; ?>" class="theme-btn readmore-btn wow fadeInUp" data-wow-delay=".4s">Read more</a>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 text-right">
-                            <img class=" box-style p-0 blog-img wow fadeInRight" data-wow-delay=".4s" src="<?php echo $post['image']; ?>" alt="post-image">
+                            <img class=" box-style p-0 blog-img wow fadeInRight mb-0" data-wow-delay=".4s" src="<?php echo $post['image']; ?>" alt="post-image">
                         </div>
                     </div>
                 </div>
