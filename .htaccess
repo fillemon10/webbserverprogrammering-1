@@ -1,13 +1,19 @@
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
 Header always set Content-Security-Policy "upgrade-insecure-requests;"
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L] 
+
 RewriteBase /
-ErrorDocument 400 /errors/bad-request.php
-ErrorDocument 401 /errors/auth-reqd.php
-ErrorDocument 403 /errors/forbid.php
-ErrorDocument 404 /errors/not-found.php
-ErrorDocument 500 /errors/server-err.php
+ErrorDocument 400 /errors/bad-request
+ErrorDocument 401 /errors/auth-reqd
+ErrorDocument 403 /errors/forbid
+ErrorDocument 404 /errors/not-found
+ErrorDocument 500 /errors/server-err
 
 RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
 # Block out any script that includes a <script> tag in URL.
@@ -17,7 +23,13 @@ RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
 # Block out any script trying to modify a _REQUEST variable via URL.
 RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 # Return 403 Forbidden header and show the content of the root homepage
-RewriteRule .* index.php [F]
+RewriteRule .* index [F]
 
 Options -Indexes
 
+<filesMatch ".(ico|jpg|jpeg|png|gif|svg|woff2)$">
+ Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+<filesMatch ".(css|js)$">
+ Header set Cache-Control "max-age=172800, public"
+</filesMatch>

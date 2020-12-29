@@ -1,6 +1,6 @@
 <?php include('../config.php'); ?>
 <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/review_functions.php');
+<?php include(ROOT_PATH . '/admin/includes/review_functions.php');
 $titles = "Create Review" ?>
 
 <?php include(ROOT_PATH . '/admin/includes/head.php'); ?>
@@ -31,7 +31,7 @@ $titles = "Create Review" ?>
                 <label for="imdb_id">IMDb ID</label>
                 <input class="form-control mb-10" type="text" name="imdb_id" value="<?php echo $imdb_id; ?>" placeholder="IMDb ID">
                 <label for="our_rating">Cinemania Rating</label>
-                <select class="form-select  mb-10" name="our_rating"i>
+                <select class="form-select  mb-10" name="our_rating" i>
                     <option selected value="<?php echo $our_rating; ?>"><?php echo $our_rating; ?></option>
                     <option value="1">1</option>
                     <option value="2">2</option>

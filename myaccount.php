@@ -21,16 +21,16 @@ require_once("includes/head.php");
                     <div class="col-2">
                         <ul>
                             <li>
-                                <a class="red mt-10" href="myaccount.php?page=edit">Edit Account</a>
+                                <a class="red mt-10" href="myaccount?page=edit">Edit Account</a>
                             </li>
                             <li>
-                                <a class="red mt-10" href="myaccount.php?page=email">Email Preferences</a>
+                                <a class="red mt-10" href="myaccount?page=email">Email Preferences</a>
                             </li>
                             <li>
-                                <a class="red mt-10" href="myaccount.php?page=contributions">View Contributions</a>
+                                <a class="red mt-10" href="myaccount?page=contributions">View Contributions</a>
                             </li>
                             <li>
-                                <a class="red mt-10" href="myaccount.php?page=delete">Delete Account</a>
+                                <a class="red mt-10" href="myaccount?page=delete">Delete Account</a>
                             </li>
                         </ul>
                     </div>

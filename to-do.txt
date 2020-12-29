@@ -1,5 +1,3 @@
-uppdatera design av reviews
-uppdatera design av blog
 fixa about us
 fixa license
 fixa contact
@@ -7,13 +5,16 @@ fixa myaccount
 fixa index
 fixa search
 fixa member-area
-fixa edit post och reivew så bara author kan redigera
 fixa email register remove html type
 fixa forgot password
 lägg till funktion member reviews 
-lägg till funktion comments
+lägg till funktion comments replies
+uppdatera design av comments
 fixa logos så det funkar i varje browser
 lägg till darkmode
+fixa max lenght kommentar
+comment cooldown
+optimize functions så det är inte skillnad på post och review
 
 permissions
 Admin

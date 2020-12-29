@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Mall för sidan om-oss
  */
@@ -7,23 +8,24 @@
 <html lang="sv">
 
 <head>
- <meta charset="utf-8" />
- <title> Vilka vi är - Läxhjälpen</title>
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <link href='http://fonts.googleapis.com/css?family=merienda+one' rel='stylesheet' />
- <link href="../html/css/laxhjalpen.css" rel="stylesheet" /> 
+  <meta charset="utf-8" />
+  <title> Vilka vi är - Läxhjälpen</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href='http://fonts.googleapis.com/css?family=merienda+one' rel='stylesheet' />
+  <link href="../html/css/laxhjalpen.css" rel="stylesheet" />
 </head>
+
 <body class="subpage">
 
-<?php
-require "masthead.php";
-require "menu.php";
-?>
+  <?php
+  require "masthead";
+  require "menu";
+  ?>
 
   <div role="main">
-  <article class="block">
+    <article class="block">
       <figure class="alignleft">
-        <img src="../html/img/tjej1.png" alt="Det här är jag - Mia"> 
+        <img src="../html/img/tjej1.png" alt="Det här är jag - Mia">
         <figcaption class="bildcaption double">
           Mia
         </figcaption>
@@ -44,7 +46,7 @@ require "menu.php";
     </article>
     <article class="block">
       <figure class="alignleft">
-        <img src="img/kille1.png" alt="Det här är jag - Pelle"> 
+        <img src="img/kille1.png" alt="Det här är jag - Pelle">
         <figcaption class="bildcaption double">
           Pelle
         </figcaption>
@@ -65,7 +67,7 @@ require "menu.php";
     </article>
     <article class="block">
       <figure class="alignleft">
-        <img src="img/tjej2.png" alt="Det här är jag - Petra"> 
+        <img src="img/tjej2.png" alt="Det här är jag - Petra">
         <figcaption class="bildcaption double">
           Petra
         </figcaption>
@@ -79,15 +81,15 @@ require "menu.php";
         Och nu är jag på väg att bli en webbdesigner.
       </p>
       <p>
-       Om du vill ha hjälp med <strong>samhällsämnena, fotografering och bildbehandling eller design</strong> då
-       kommer jag snabbt som ögat!
+        Om du vill ha hjälp med <strong>samhällsämnena, fotografering och bildbehandling eller design</strong> då
+        kommer jag snabbt som ögat!
       </p>
     </article>
     <article class="block">
       <figure class="alignleft">
-        <img src="img/kille2.png" alt="Det här är jag - Johan"> 
+        <img src="img/kille2.png" alt="Det här är jag - Johan">
         <figcaption class="bildcaption double">
-         Johan
+          Johan
         </figcaption>
       </figure>
       <p>
@@ -105,9 +107,10 @@ require "menu.php";
     </article>
   </div>
 
-<?php
-require "footer.php";
-?>
+  <?php
+  require "footer";
+  ?>
 
 </body>
+
 </html>

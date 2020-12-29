@@ -147,7 +147,7 @@ function createAdmin($request_values)
 		$reg_user_id = mysqli_insert_id($conn);
 
 		$_SESSION['message'] = "Admin user created successfully";
-		header('location: users.php');
+		header('location: users');
 		exit(0);
 	}
 }
@@ -208,7 +208,7 @@ function updateAdmin($request_values)
 		}
 
 		$_SESSION['message'] = "Admin user updated successfully";
-		header('location: users.php');
+		header('location: users');
 		exit(0);
 	}
 }
@@ -221,7 +221,7 @@ function deleteAdmin($admin_id)
 
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "User successfully deleted";
-		header("location: users.php");
+		header("location: users");
 		exit(0);
 	}
 }
@@ -292,7 +292,7 @@ function createTopic($request_values)
 
 
 		$_SESSION['message'] = "Topic created successfully";
-		header('location: topics.php');
+		header('location: topics');
 		exit(0);
 	}
 }
@@ -341,7 +341,7 @@ function updateTopic($request_values)
 
 
 		$_SESSION['message'] = "Topic updated successfully";
-		header('location: topics.php');
+		header('location: topics');
 		exit(0);
 	}
 }
@@ -356,7 +356,7 @@ function deleteTopic($topic_id)
 
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "Topic successfully deleted";
-		header("location: topics.php");
+		header("location: topics");
 		exit(0);
 	}
 }

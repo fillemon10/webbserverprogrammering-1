@@ -22,7 +22,7 @@ require_once("includes/head.php");
                 <div class="col-xl-8 col-lg-8 col-md-8 mx-auto">
                     <div class="container  box-style pt-15 pb-15">
 
-                        <form class="form-form" method="post" action="register.php">
+                        <form class="form-form" method="post" action="register">
                             <div class="container">
                                 <h2>Register on Cinemania</h2>
 
@@ -44,7 +44,7 @@ require_once("includes/head.php");
                                 </div>
                         </form>
                         <div class="row">
-                            <p class="wow fadeInUp text-right" data-wow-delay="1.3s">Already a member? <a class="red" href="login.php"> Sign in</a></p>
+                            <p class="wow fadeInUp text-right" data-wow-delay="1.3s">Already a member? <a class="red" href="login"> Sign in</a></p>
                         </div>
                     </div>
                 </div>
@@ -71,5 +71,5 @@ require_once("includes/head.php");
 <div class="container  box-style w-50 pt-15">
 
 
-    <p>Already a member? <a href="login.php">Sign in</a></p>
+    <p>Already a member? <a href="login">Sign in</a></p>
 </div>

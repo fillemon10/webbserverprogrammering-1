@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Mall för att visa ett kontaktformulär
  * 
@@ -6,8 +7,9 @@
  */
 
 trigger_error(
-    "<pre>Ta bort detta fel när du läst kapitel 17 och studerat koden.<br />Det finns på rad " 
-    . (__LINE__ - 2) . " i filen " . __FILE__, E_USER_ERROR
+  "<pre>Ta bort detta fel när du läst kapitel 17 och studerat koden.<br />Det finns på rad "
+    . (__LINE__ - 2) . " i filen " . __FILE__,
+  E_USER_ERROR
 );
 
 $h1span = "Kontakta oss";
@@ -15,6 +17,7 @@ $h1span = "Kontakta oss";
 ?>
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <meta charset="utf-8" />
   <title>Kontakt - Läxhjälpen</title>
@@ -23,15 +26,16 @@ $h1span = "Kontakta oss";
   <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' />
   <link href="css/laxhjalpen.css" rel="stylesheet" />
 </head>
+
 <body class="subpage">
-<?php
-require("masthead.php");
-require("menu.php");
-echo <<<MAIN
+  <?php
+  require("masthead");
+  require("menu");
+  echo <<<MAIN
   <div role="main">
   <h2>Kontaktformulär</h2>
   <!-- Telefon bör också finnas -->
-  <form action="contact.php" method="post">
+  <form action="contact" method="post">
     <fieldset id="userdata">
       <legend>Vem är du?</legend>
       <p>
@@ -64,10 +68,11 @@ echo <<<MAIN
   </form>
   </div>
 MAIN;
-?>
+  ?>
 
   <footer>
     <small>&copy; Lars Gunther och Thelin AB</small>
   </footer>
 </body>
+
 </html>

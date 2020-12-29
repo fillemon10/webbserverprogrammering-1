@@ -55,24 +55,24 @@ if (isset($_GET['type'])) {
                             <?php
                             if (count($review["genres"]) > 1) {
                                 foreach ($review["genres"] as $key => $genre) { ?>
-                                    <a class="font-weight-bold wow fadeInLeft mb-0 mt-10 red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews.php?genre=' . strtolower($review["genres"][$key]) ?>"><?php echo $review["genres"][$key] ?></a>
+                                    <a class="font-weight-bold wow fadeInLeft mb-0 mt-10 red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews?genre=' . strtolower($review["genres"][$key]) ?>"><?php echo $review["genres"][$key] ?></a>
                                 <?php }
                             } else { ?>
-                                <a class="wow fadeInLeft red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews.php?genre=' . strtolower($review["genres"][0]) ?>"><?php echo $review["genres"][0] ?></a>
+                                <a class="wow fadeInLeft red" data-wow-delay=".6s" href="<?php echo BASE_URL . '/filtered_reviews?genre=' . strtolower($review["genres"][0]) ?>"><?php echo $review["genres"][0] ?></a>
                             <?php } ?>
                             <div class="row">
-                                <a class="mb-0" href="single_review.php?review-slug=<?php echo $review['slug']; ?>">
+                                <a class="mb-0" href="single_review?review-slug=<?php echo $review['slug']; ?>">
                                     <h2 class="wow fadeInLeft mt-10 mb-0" data-wow-delay=".2s"><?php echo "'" . $review["title_of"] . "' review: " . $review["title"] ?></h2>
                                 </a>
                             </div>
                             <?php if ($review["type"] == 0) : ?>
-                                <a class="mb-10 mt-10" href="<?php echo BASE_URL . '/filtered_reviews.php?type=movie' ?>"><span class="wow fadeInLeft" data-wow-delay=".2s">Movie</span></a>
+                                <a class="mb-10 mt-10" href="<?php echo BASE_URL . '/filtered_reviews?type=movie' ?>"><span class="wow fadeInLeft" data-wow-delay=".2s">Movie</span></a>
                             <?php else : ?>
-                                <a class="mb-10 mt-10" href="<?php echo BASE_URL . '/filtered_reviews.php?type=series' ?>"><span class="wow fadeInLeft" data-wow-delay=".2s">TV/Streaming</span></a>
+                                <a class="mb-10 mt-10" href="<?php echo BASE_URL . '/filtered_reviews?type=series' ?>"><span class="wow fadeInLeft" data-wow-delay=".2s">TV/Streaming</span></a>
                             <?php endif ?>
                             <div class="row">
                                 <div col-2>
-                                    <a href="single_review.php?review-slug=<?php echo $review['slug']; ?>" class="theme-btn readmore-btn wow fadeInUp mb-10 " data-wow-delay=".4s">Read review</a>
+                                    <a href="single_review?review-slug=<?php echo $review['slug']; ?>" class="theme-btn readmore-btn wow fadeInUp mb-10 " data-wow-delay=".4s">Read review</a>
                                 </div>
                             </div>
                         </div>

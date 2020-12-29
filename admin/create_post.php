@@ -1,6 +1,6 @@
 <?php include('../config.php'); ?>
 <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/post_functions.php');
+<?php include(ROOT_PATH . '/admin/includes/post_functions.php');
 $titles = "Create Post" ?>
 
 <?php include(ROOT_PATH . '/admin/includes/head.php'); ?>

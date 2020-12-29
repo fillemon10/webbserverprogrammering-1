@@ -48,7 +48,7 @@ class OMDb
 
 	//$params = array(param => value)
 	//$timeout = request timeout in seconds
-	//$date = see this page for format http://php.net/manual/function.date.php,
+	//$date = see this page for format http://php.net/manual/function.date,
 	//can be NULL and returns UNIX-time
 	public function __construct($params = [], $timeout = 5, $date_format = 'Y-m-d')
 	{
@@ -402,4 +402,4 @@ class OMDb
 		return $data;
 	}
 }
-$omdb = new OMDb( ['plot' => 'full', 'apikey' => '84385d89'] );
+$omdb = new OMDb(['plot' => 'full', 'apikey' => '84385d89']);

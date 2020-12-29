@@ -56,5 +56,5 @@
 })();
 
 function openSinglePost(slug) {
-  window.url = 'single_post.php?post-slug=' + slug;
+  window.url = 'single_post?post-slug=' + slug;
 }

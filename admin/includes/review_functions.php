@@ -18,6 +18,7 @@ $our_rating = "";
 // if user clicks the create review button
 if (isset($_POST['create_review'])) {
     createReview($_POST);
+    unset($_POST);
 }
 
 // if user clicks the Edit view button
@@ -30,6 +31,7 @@ if (isset($_GET['edit-review'])) {
 // if user clicks the update review button
 if (isset($_POST['update_review'])) {
     updateReview($_POST);
+    unset($_POST);
 }
 
 // if user clicks the Delete review button
@@ -149,7 +151,7 @@ function createReview($request_values)
         }
 
         $_SESSION['message'] = "Review created successfully";
-        header('location: reviews.php');
+        header('location: reviews');
         exit(0);
     }
 }
@@ -218,7 +220,7 @@ function updateReview($request_values)
         mysqli_query($conn, $query);
 
         $_SESSION['message'] = "Review updated successfully";
-        header('location: reviews.php');
+        header('location: reviews');
         exit(0);
     }
 }
@@ -234,7 +236,7 @@ function deleteReview($review_id)
         $_SESSION['message'] = "Review successfully deleted";
     }
 
-    header("location: reviews.php");
+    header("location: reviews");
     exit(0);
 }
 
@@ -246,7 +248,7 @@ function togglePublishReview($review_id, $message)
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['message'] = $message;
-        header("location: reviews.php");
+        header("location: reviews");
         exit(0);
     }
 }

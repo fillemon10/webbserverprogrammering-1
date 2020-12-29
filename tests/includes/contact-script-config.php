@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Konfigurationsfil för kontaktformulärsskriptet
  *
@@ -10,8 +11,9 @@
  */
 
 trigger_error(
-    "<pre>Ta bort detta fel när du läst kapitel 17 och studerat koden.<br />Det finns på rad " 
-    . (__LINE__ - 2) . " i filen " . __FILE__, E_USER_ERROR
+    "<pre>Ta bort detta fel när du läst kapitel 17 och studerat koden.<br />Det finns på rad "
+        . (__LINE__ - 2) . " i filen " . __FILE__,
+    E_USER_ERROR
 );
 
 /**
@@ -119,7 +121,7 @@ $required_fields = array(
     // "uname"
     "uname", "umail"
 );
- 
+
 /**
  * Sökväg till katalogen där mallarna finns
  * @var string
@@ -130,13 +132,13 @@ $path_to_templates = "../templates/";
  * Mallen för kontaktformuläret
  * @var string
  */
-$form_template = "contact-template.php";
+$form_template = "contact-template";
 
 /**
  * Mallen för resultatsidan
  * @var string
  */
-$success_template = "sent-template.php";
+$success_template = "sent-template";
 
 /**
  * Mall för mejlet som ska skickas
@@ -169,5 +171,3 @@ MT;
  * @var string
  */
 $get_in_touched_is_checked_message = "Avsändaren vill bli kontaktad.";
-
-

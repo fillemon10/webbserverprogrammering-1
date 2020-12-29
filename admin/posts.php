@@ -1,6 +1,6 @@
 <?php include('../config.php'); ?>
 <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/post_functions.php');
+<?php include(ROOT_PATH . '/admin/includes/post_functions.php');
 $titles = "Posts" ?>
 <?php include(ROOT_PATH . '/admin/includes/head.php'); ?>
 
@@ -30,7 +30,7 @@ $posts = getAllPosts();
 			<?php if (empty($posts)) : ?>
 				<h1 style="text-align: center; margin-top: 20px;">No posts in the database.</h1>
 			<?php else : ?>
-				<table class="table table-hover">
+				<table class="table table-hover table-bordered">
 					<tr>
 						<thead>
 							<th>N</th>
@@ -50,32 +50,32 @@ $posts = getAllPosts();
 								<td><?php echo $key + 1; ?></td>
 								<td><?php echo $post['author']; ?></td>
 								<td>
-									<a class="red" target="_blank" href="<?php echo BASE_URL . 'single_post.php?post-slug=' . $post['slug'] ?>">
+									<a class="red" target="_blank" href="<?php echo BASE_URL . 'single_post?post-slug=' . $post['slug'] ?>">
 										<?php echo $post['title']; ?>
 									</a>
 								</td>
 								<td><?php echo $post['views']; ?></td>
 								<td>
 									<?php if ($post['published'] == true) : ?>
-										<a class="publish  btn btn-success" href="posts.php?publish=<?php echo $post['id'] ?>">
+										<a class="publish  btn btn-success" href="posts?publish=<?php echo $post['id'] ?>">
 											<i class="lni lni-checkmark"></i> </a>
 									<?php else : ?>
 
-										<a class="unpublish btn btn-danger" href="posts.php?unpublish=<?php echo $post['id'] ?>">
+										<a class="unpublish btn btn-danger" href="posts?unpublish=<?php echo $post['id'] ?>">
 											<i class="lni lni-close"></i> </a>
 									<?php endif ?>
 								</td>
 								<td>
-									<a class="edit btn btn-primary" href="create_post.php?edit-post=<?php echo $post['id'] ?>">
+									<a class="edit btn btn-primary" href="create_post?edit-post=<?php echo $post['id'] ?>">
 										<i class="lni lni-pencil"></i>
 									</a>
 								</td>
 								<?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
-								<td>
-									<a class="delete btn btn-danger" href="create_post.php?delete-post=<?php echo $post['id'] ?>">
-										<i class=" lni lni-trash"></i>
-									</a>
-								</td>
+									<td>
+										<a class="delete btn btn-danger" href="create_post?delete-post=<?php echo $post['id'] ?>">
+											<i class=" lni lni-trash"></i>
+										</a>
+									</td>
 								<?php } ?>
 							</tr>
 						<?php endforeach ?>

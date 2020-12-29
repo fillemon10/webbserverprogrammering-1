@@ -29,8 +29,8 @@ $h1span = "Tack för ditt meddelande";
 
 <body class="subpage">
   <?php
-  require("masthead.php");
-  require("menu.php");
+  require("masthead");
+  require("menu");
   echo <<<REPLY
   <div role="main">
   <h2>Ditt meddelande har skickats</h2>

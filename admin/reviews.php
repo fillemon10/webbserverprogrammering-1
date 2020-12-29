@@ -1,6 +1,6 @@
 <?php include('../config.php'); ?>
 <?php include(ROOT_PATH . '/admin/includes/admin_functions.php'); ?>
-<?php include(ROOT_PATH . '/admin/review_functions.php');
+<?php include(ROOT_PATH . '/admin/includes/review_functions.php');
 $titles = "Reviews" ?>
 <?php include(ROOT_PATH . '/admin/includes/head.php'); ?>
 
@@ -29,19 +29,20 @@ $reviews = getAllreviews();
             <?php if (empty($reviews)) : ?>
                 <h1 style="text-align: center; margin-top: 20px;">No reviews in the database.</h1>
             <?php else : ?>
-                <table class="table table-hover">
+                <table class="table table-hover table-bordered">
                     <tr>
                         <thead>
                             <th>N</th>
                             <th>Author</th>
-                            <th>Title Of</th>
+
                             <th>Cinemania Rating</th>
+                            <th>Title Of</th>
                             <th>Title</th>
                             <th>Views</th>
                             <th><small>Published</small></th>
                             <th><small>Edit</small></th>
                             <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
-                            <th><small>Delete</small></th>
+                                <th><small>Delete</small></th>
                             <?php } ?>
                         </thead>
                     </tr>
@@ -50,12 +51,10 @@ $reviews = getAllreviews();
                             <tr>
                                 <td><?php echo $key + 1; ?></td>
                                 <td><?php echo $review['author']; ?></td>
-                                <td><?php echo $review['title_of']; ?></td>
                                 <td><?php echo $review['our_rating']; ?></td>
-
-
+                                <td><?php echo $review['title_of']; ?></td>
                                 <td>
-                                    <a class="red" target="_blank" href="<?php echo BASE_URL . 'single_review.php?review-slug=' . $review['slug'] ?>">
+                                    <a class="red" target="_blank" href="<?php echo BASE_URL . 'single_review?review-slug=' . $review['slug'] ?>">
                                         <?php echo $review['title']; ?>
                                     </a>
                                 </td>
@@ -63,24 +62,24 @@ $reviews = getAllreviews();
                                 <td>
                                     <?php
                                     if ($review['published'] == true) : ?>
-                                        <a class="publish  btn btn-success" href="reviews.php?publish=<?php echo $review['id'] ?>">
+                                        <a class="publish  btn btn-success" href="reviews?publish=<?php echo $review['id'] ?>">
                                             <i class="lni lni-checkmark"></i> </a>
                                     <?php else : ?>
-                                        <a class="unpublish btn btn-danger" href="reviews.php?unpublish=<?php echo $review['id'] ?>">
+                                        <a class="unpublish btn btn-danger" href="reviews?unpublish=<?php echo $review['id'] ?>">
                                             <i class="lni lni-close"></i> </a>
                                     <?php endif ?>
                                 </td>
                                 <td>
-                                    <a class="edit btn btn-primary" href="create_review.php?edit-review=<?php echo $review['id'] ?>">
+                                    <a class="edit btn btn-primary" href="create_review?edit-review=<?php echo $review['id'] ?>">
                                         <i class="lni lni-pencil"></i>
                                     </a>
                                 </td>
                                 <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
-                                <td>
-                                    <a class="delete btn btn-danger" href="create_review.php?delete-review=<?php echo $review['id'] ?>">
-                                        <i class=" lni lni-trash"></i>
-                                    </a>
-                                </td>
+                                    <td>
+                                        <a class="delete btn btn-danger" href="create_review?delete-review=<?php echo $review['id'] ?>">
+                                            <i class=" lni lni-trash"></i>
+                                        </a>
+                                    </td>
                                 <?php } ?>
                             </tr>
                         <?php endforeach ?>

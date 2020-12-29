@@ -59,12 +59,12 @@ if (isset($_POST['reg_user'])) {
 		if (in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) {
 			$_SESSION['message'] = "You are now logged in";
 			// redirect to admin area
-			header('location: ' . BASE_URL . 'admin/dashboard.php');
+			header('location: ' . BASE_URL . 'admin/dashboard');
 			exit(0);
 		} else {
 			$_SESSION['message'] = "You are now logged in";
 			// redirect to public area
-			header('location: index.php');
+			header('location: index');
 			exit(0);
 		}
 	}
@@ -97,12 +97,12 @@ if (isset($_POST['login_btn'])) {
 			if (in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) {
 				$_SESSION['message'] = "You are now logged in";
 				// redirect to admin area
-				header('location: ' . BASE_URL . '/admin/dashboard.php');
+				header('location: ' . BASE_URL . '/admin/dashboard');
 				exit(0);
 			} else {
 				$_SESSION['message'] = "You are now logged in";
 				// redirect to public area
-				header('location: index.php');
+				header('location: index');
 				exit(0);
 			}
 		} else {

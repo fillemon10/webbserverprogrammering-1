@@ -73,12 +73,14 @@
                             <?php if (empty($admins)) : ?>
                                 <h1>No admins in the database.</h1>
                             <?php else : ?>
-                                <table class="table table-hover">
+                                <table class="table table-hover table-bordered">
                                     <thead>
                                         <th>#</th>
                                         <th>Admin</th>
                                         <th>Role</th>
-                                        <th colspan="2">Action</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
                                     </thead>
                                     <tbody>
                                         <?php foreach ($admins as $key => $admin) : ?>
@@ -90,13 +92,13 @@
                                                 </td>
                                                 <td><?php echo $admin['role']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-success edit" href="users.php?edit-admin=<?php echo $admin['id'] ?>">
+                                                    <a class="btn btn-primary edit" href="users?edit-admin=<?php echo $admin['id'] ?>">
                                                         <i class="lni lni-pencil"></i>
 
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger delete" href="users.php?delete-admin=<?php echo $admin['id'] ?>">
+                                                    <a class="btn btn-danger delete" href="users?delete-admin=<?php echo $admin['id'] ?>">
                                                         <i class="lni lni-trash"></i>
 
                                                     </a>
@@ -114,7 +116,7 @@
         </div>
     </body>
 <?php } else {
-    header('location: dashboard.php');
+    header('location: dashboard');
 } ?>
 
 </html>

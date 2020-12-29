@@ -19,6 +19,7 @@ $post_topic = "";
 // if user clicks the create post button
 if (isset($_POST['create_post'])) {
 	createPost($_POST);
+	unset($_POST);
 }
 
 // if user clicks the Edit post button
@@ -31,6 +32,7 @@ if (isset($_GET['edit-post'])) {
 // if user clicks the update post button
 if (isset($_POST['update_post'])) {
 	updatePost($_POST);
+	unset($_POST);
 }
 
 // if user clicks the Delete post button
@@ -136,7 +138,7 @@ function createPost($request_values)
 			mysqli_query($conn, $topic_sql);
 		}
 		$_SESSION['message'] = "Post created successfully";
-		header('location: posts.php');
+		header('location: posts');
 		exit(0);
 	}
 }
@@ -201,7 +203,7 @@ function updatePost($request_values)
 		mysqli_query($conn, $topic_sql);
 
 		$_SESSION['message'] = "Post updated successfully";
-		header('location: posts.php');
+		header('location: posts');
 		exit(0);
 	}
 }
@@ -215,12 +217,12 @@ function deletePost($post_id)
 
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = "Post successfully deleted";
-		header("location: posts.php");
+		header("location: posts");
 		exit(0);
 	}
 }
 
-// delete blog post
+// toggle published blog post
 function togglePublishPost($post_id, $message)
 {
 	global $conn;
@@ -228,7 +230,7 @@ function togglePublishPost($post_id, $message)
 
 	if (mysqli_query($conn, $sql)) {
 		$_SESSION['message'] = $message;
-		header("location: posts.php");
+		header("location: posts");
 		exit(0);
 	}
 }

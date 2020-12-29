@@ -36,14 +36,14 @@ include(ROOT_PATH . '/admin/includes/dashboard_functions.php')
 			<div class="row">
 				<div class="col-xl-4 col-lg-7 col-md-9 mx-auto">
 					<div class=" box-style">
-						<h3>Total users</h3>
+						<h3>Total Users</h3>
 						<p class="display-4"><?php echo countUsers() ?></p>
 					</div>
 				</div>
 				<div class="col-xl-4 col-lg-7 col-md-9 mx-auto">
 					<div class=" box-style">
-						<h3>Site hits</h3>
-						<p class="display-4"><?php echo getHits() ?></p>
+						<h3>Total Comments</h3>
+						<p class="display-4"><?php echo countComments() ?></p>
 					</div>
 				</div>
 				<div class="col-xl-4 col-lg-7 col-md-9 mx-auto">

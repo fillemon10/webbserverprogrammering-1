@@ -28,6 +28,7 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
+  
   font-weight: normal;
   font-style: normal;
   color: #7a5858;
@@ -97,7 +98,7 @@ iframe,
 img,
 svg,
 video {
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 
 h1,
@@ -160,7 +161,7 @@ p {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  color: #553d3d;
+  color: #443131;
   margin: 0px;
 }
 .p-mask {
@@ -1538,12 +1539,12 @@ p {
 .hero-section .hero-content-wrapper p {
   font-size: 18px;
   line-height: 26px;
-  color: #926a6a;
   opacity: 0.8;
   margin-bottom: 30px;
 }
 .hero-img img {
   max-width: 100%;
+  height: auto;
 }
 .hero-section .hero-img {
   position: absolute;
@@ -1646,7 +1647,7 @@ p {
 
 .box-style {
   padding: 40px 30px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #d1d1d1;
   border-radius: 10px;
   margin-bottom: 30px;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -1965,6 +1966,39 @@ p {
 }
 .comment {
   padding: 15px !important;
+}
+.reply-btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 16px 20px;
+  font-size: 18px;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.4s ease-in-out;
+  border: none;
+  background: linear-gradient(to left, #eb3737 0%, #e85858 50.39%, #eb3737 100%);
+  background-size: 200% auto;
+  overflow: hidden;
+}
+.reply-btn:hover,
+.reply-btn:focus {
+  background-position: right center;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 30px rgba(217, 46, 46, 0.45);
+  -moz-box-shadow: 0px 0px 30px rgba(217, 46, 46, 0.45);
+  box-shadow: 0px 0px 30px rgba(217, 46, 46, 0.45);
+}
+.post-reply {
+  visibility: visible !important;
 }
 /*===========================
     07. review CSS 

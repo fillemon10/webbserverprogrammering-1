@@ -33,14 +33,18 @@ $posts = array_reverse(getPublishedPosts());
           <p class="mb-35 wow fadeInLeft" data-wow-delay=".4s">
             The #1 place to find good movies to watch
           </p>
-          <a href="reviews.php" class="theme-btn">Latests reviews</a>
+          <a href="reviews" class="theme-btn">Latests reviews</a>
         </div>
       <?php } ?>
       </div>
       <div class="col-xl-7 col-lg-6">
         <div class="hero-img">
           <div class="d-inline-block hero-img-right">
-            <img src="assets/img/hero/hero-img.png" alt="" class="wow fadeInRight" data-wow-delay=".5s" />
+            <?php if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) { ?>
+              <img src="assets/img/hero/hero-img.webp" alt="" class="wow fadeInRight" data-wow-delay=".5s" />
+            <?php } else { ?>
+              <img src="assets/img/hero/hero-img.png" alt="" class="wow fadeInRight" data-wow-delay=".5s" />
+            <?php } ?>
           </div>
         </div>
       </div>
@@ -163,13 +167,13 @@ $posts = array_reverse(getPublishedPosts());
                 <h3 class="wow fadeInLeft" data-wow-delay=".2s"><?php echo $posts[$i]['title'] ?></h3>
                 <?php if (isset($posts[$i]['topic']['name'])) : ?>
                   <div class="row">
-                    <a class="mb-10" href="<?php echo BASE_URL . 'filtered_posts.php?topic=' . $posts[$i]['topic']['id'] ?>"> <span class="wow fadeInLeft red" data-wow-delay=".4s"> <?php echo $posts[$i]['topic']['name'] ?></span></a>
+                    <a class="mb-10" href="<?php echo BASE_URL . 'filtered_posts?topic=' . $posts[$i]['topic']['id'] ?>"> <span class="wow fadeInLeft red" data-wow-delay=".4s"> <?php echo $posts[$i]['topic']['name'] ?></span></a>
                   </div>
                 <?php endif ?>
                 <p class="wow fadeInLeft" data-wow-delay=".6s"><?php echo shorten_string($posts[$i]['body'], 20) ?></p>
                 <div class="row mt-10 blog-btn-index">
                   <div class="col-xl-8 col-lg-8 col-md-8">
-                    <a href="single_post.php?post-slug=<?php echo $posts[$i]['slug']; ?>" class="theme-btn readmore-btn wow fadeInUp" data-wow-delay=".8s">Read more</a>
+                    <a href="single_post?post-slug=<?php echo $posts[$i]['slug']; ?>" class="theme-btn readmore-btn wow fadeInUp" data-wow-delay=".8s">Read more</a>
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-4">
                     <p class="wow fadeInUp" data-wow-delay=".8s"><?php echo date("F j, Y ", strtotime($posts[$i]["created_at"])); ?></p>

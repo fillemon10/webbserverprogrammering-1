@@ -13,8 +13,8 @@ require_once("includes/head.php");
     <?php include("includes/banner.php") ?>
     <!-- ========================= page-banner-section end ========================= -->
 
-     <!-- ========================= contact-section start ========================= -->
-     <section class="contact-section pt-130">
+    <!-- ========================= contact-section start ========================= -->
+    <section class="contact-section pt-130">
         <div class="container">
             <div class="row">
                 <div class="col-xl-4">
@@ -70,7 +70,7 @@ require_once("includes/head.php");
                                 </div>
                             </div>
                         </div>
-                        <form action="assets/php/mail.php" class="contact-form">
+                        <form action="assets/php/mail" class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" name="name" id="name" placeholder="Name" required>
@@ -124,7 +124,7 @@ require_once("includes/head.php");
     <?php include("includes/footer.php") ?>
     <!-- ========================= footer end  ========================= -->
 
-    <?php include("includes/js.php") ?>
+    <?php include("includes/j.phps") ?>
 </body>
 
 </html>

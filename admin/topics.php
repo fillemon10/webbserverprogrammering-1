@@ -56,12 +56,14 @@ $topics = getAllTopics();
 					<?php if (empty($topics)) : ?>
 						<h1>No topics in the database.</h1>
 					<?php else : ?>
-						<table class="table table-hover">
+						<table class="table table-hover table-bordered"">
 							<thead>
 								<th>N</th>
 								<th>Topic Name</th>
 								<?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
-									<th colspan="2">Action</th>
+									<th>Edit</th>
+									<th>Delete</th>
+
 								<?php } ?>
 							</thead>
 							<tbody>
@@ -72,20 +74,20 @@ $topics = getAllTopics();
 										<?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
 
 											<td>
-												<a class=" btn btn-primary" href="topics.php?edit-topic=<?php echo $topic['id'] ?>">
-													<i class=" lni lni-pencil"></i>
-												</a>
-											</td>
+												<a class=" btn btn-primary" href="topics?edit-topic=<?php echo $topic['id'] ?>">
+							<i class=" lni lni-pencil"></i>
+							</a>
+							</td>
 
-											<td>
-												<a class=" btn btn-danger" href="topics.php?delete-topic=<?php echo $topic['id'] ?>">
-													<i class=" lni lni-trash"></i>
-												</a>
-											</td>
-										<?php } ?>
-									</tr>
-								<?php endforeach ?>
-							</tbody>
+							<td>
+								<a class=" btn btn-danger" href="topics?delete-topic=<?php echo $topic['id'] ?>">
+									<i class=" lni lni-trash"></i>
+								</a>
+							</td>
+						<?php } ?>
+						</tr>
+					<?php endforeach ?>
+					</tbody>
 						</table>
 					<?php endif ?>
 				</div>

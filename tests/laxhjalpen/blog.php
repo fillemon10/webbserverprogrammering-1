@@ -51,4 +51,4 @@ if (empty($slug)) {
     $template = 'not-found';
 }
 
-require "../templates/{$template}.php";
+require "../templates/{$template}";

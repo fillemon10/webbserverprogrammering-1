@@ -265,7 +265,7 @@ function GetPublishedPostComments($post_id)
 
 	$final_comments = array();
 	foreach ($comments as $comment) {
-		$comment["username"] = getCommentUserById($comment['user_id']);
+		$comment["username"] = getUsernameById($comment['user_id']);
 		array_push($final_comments, $comment);
 	}
 	return array_reverse($final_comments);
@@ -298,7 +298,7 @@ function postComment($request_values, $post_id)
 	}
 }
 // Get user info from user id
-function getCommentUserById($user_id)
+function getUsernameById($user_id)
 {
 
 	global $conn;
@@ -313,17 +313,17 @@ function getCommentUserById($user_id)
 	}
 }
 //get all comments from a published review
-function GetPublishedreviewComments($review_id)
+function GetPublishedReviewComments($review_id)
 {
 	global $conn;
 
-	$sql = "SELECT * FROM review_comments WHERE review_id='$review_id'";
+	$sql = "SELECT * FROM review_comments WHERE review_id='$review_id' AND published=true";
 	$result = mysqli_query($conn, $sql);
 	$comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 	$final_comments = array();
 	foreach ($comments as $comment) {
-		$comment["username"] = getCommentUserById($comment['user_id']);
+		$comment["username"] = getUsernameById($comment['user_id']);
 		array_push($final_comments, $comment);
 	}
 	return array_reverse($final_comments);
@@ -332,6 +332,8 @@ function GetPublishedreviewComments($review_id)
 if (isset($_POST['comment_review_btn'])) {
 	$review = getreview($_GET['review-slug']);
 	reviewComment($_POST, $review['id']);
+	unset($_POST);
+
 }
 function reviewComment($request_values, $review_id)
 {
@@ -353,5 +355,54 @@ function reviewComment($request_values, $review_id)
 			'$text', now(), now())";
 
 		mysqli_query($conn, $query);
+		$_SESSION['message'] = "Comment has been sent for review";
 	}
+}
+//reply to review 
+if (isset($_POST['reply_review_btn'])) {
+	$comment_id = $_GET['reply-review'];
+	reviewReply($_POST, $comment_id);
+	unset($_POST);
+}
+function reviewReply($request_values, $comment_id)
+{
+	global $conn;
+	$errors = array();
+
+	$user = $_SESSION['user']['id'];
+	$text = htmlentities(htmlspecialchars($request_values['reply_review_text']));
+	if (empty($text)) {
+		array_push($errors, "Text is required");
+	}
+
+	// create reply if there are no errors in the form
+	if (count($errors) == 0) {
+
+		$query = "INSERT INTO review_comment_replies (comment_id, user_id, text, created_at, updated_at) 
+				VALUES('$comment_id',
+				'$user', 
+				'$text', now(), now())";
+
+		mysqli_query($conn, $query);
+		$_SESSION['message'] = "Comment has been sent for review";
+	}
+
+}
+//get replies
+function GetPublishedReviewreplies($comment_id)
+{
+	global $conn;
+
+	$sql = "SELECT * FROM review_comment_replies WHERE comment_id='$comment_id' AND published=true";
+	$result = mysqli_query($conn, $sql);
+	$replies = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+	$final_replies = array();
+	foreach ($replies as $reply) {
+		$reply["username"] = getUsernameById($reply['user_id']);
+		array_push($final_replies, $reply);
+	}
+
+	return array_reverse($final_replies);
+	
 }
