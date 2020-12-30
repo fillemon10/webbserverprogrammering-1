@@ -15,8 +15,8 @@
 </head>
 <?php
 if (!isset($_SESSION['user']['username'])) {
-    header("location:" . BASE_URL . "login");
+    header("location:" . ROOT_PATH . "login");
 }
 if (!in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) {
-    header("location:" . BASE_URL . "index");
+    header("location:" . ROOT_PATH . "index");
 }

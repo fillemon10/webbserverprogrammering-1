@@ -59,7 +59,7 @@ if (isset($_POST['reg_user'])) {
 		if (in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) {
 			$_SESSION['message'] = "You are now logged in";
 			// redirect to admin area
-			header('location: ' . BASE_URL . 'admin/dashboard');
+			header('location: admin/dashboard');
 			exit(0);
 		} else {
 			$_SESSION['message'] = "You are now logged in";
@@ -97,7 +97,7 @@ if (isset($_POST['login_btn'])) {
 			if (in_array($_SESSION['user']['role'], ["Admin", "Author", "Moderator"])) {
 				$_SESSION['message'] = "You are now logged in";
 				// redirect to admin area
-				header('location: ' . BASE_URL . '/admin/dashboard');
+				header('location: /admin/dashboard');
 				exit(0);
 			} else {
 				$_SESSION['message'] = "You are now logged in";
