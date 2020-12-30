@@ -13,7 +13,7 @@ $isEditingTopic = false;
 $topic_name = "";
 
 // general variables
-$errors = [];
+$_SESSION['errors'] = [];
 
 /* - - - - - - - - - - 
 	-
@@ -89,7 +89,7 @@ if (isset($_GET['delete-topic'])) {
 	* * * * * * * * * * * * * * * * * * * * * * */
 function createAdmin($request_values)
 {
-	global $conn, $errors, $username, $email;
+	global $conn, $username, $email;
 
 
 	$username = esc($request_values['username']);
@@ -103,19 +103,19 @@ function createAdmin($request_values)
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) {
-		array_push($errors, "Uhmm...We gonna need the username");
+		array_push($_SESSION['errors'], "Uhmm...We gonna need the username");
 	}
 	if (empty($email)) {
-		array_push($errors, "Oops.. Email is missing");
+		array_push($_SESSION['errors'], "Oops.. Email is missing");
 	}
 	if (empty($role)) {
-		array_push($errors, "This is an admin user. So role is required");
+		array_push($_SESSION['errors'], "This is an admin user. So role is required");
 	}
 	if (empty($password)) {
-		array_push($errors, "uh-oh you forgot the password");
+		array_push($_SESSION['errors'], "uh-oh you forgot the password");
 	}
 	if ($password != $passwordConfirmation) {
-		array_push($errors, "The two passwords do not match");
+		array_push($_SESSION['errors'], "The two passwords do not match");
 	}
 
 	// Ensure that no user is registered twice. 
@@ -128,16 +128,16 @@ function createAdmin($request_values)
 
 	if ($user) { // if user exists
 		if ($user['username'] === $username) {
-			array_push($errors, "Username already exists");
+			array_push($_SESSION['errors'], "Username already exists");
 		}
 
 		if ($user['email'] === $email) {
-			array_push($errors, "Email already exists");
+			array_push($_SESSION['errors'], "Email already exists");
 		}
 	}
 
 	// register user if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		$password = md5($password); //encrypt the password before saving in the database
 		$query = "INSERT INTO users (username, email, password, role, created_at, updated_at) 
 					  VALUES('$username', '$email', '$password','$role', now(), now())";
@@ -175,7 +175,7 @@ function editAdmin($admin_id)
 	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 function updateAdmin($request_values)
 {
-	global $conn, $errors, $username, $isEditingUser, $admin_id, $email;
+	global $conn, $username, $isEditingUser, $admin_id, $email;
 
 	// get id of the admin to be updated
 	$admin_id = $request_values['admin_id'];
@@ -194,7 +194,7 @@ function updateAdmin($request_values)
 	}
 
 	// register user if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		//encrypt the password (security purposes)
 		$password = md5($password);
 
@@ -263,7 +263,7 @@ function getAllTopics()
 
 function createTopic($request_values)
 {
-	global $conn, $errors, $topic_name;
+	global $conn, $topic_name;
 
 	$topic_name = esc($request_values['topic_name']);
 
@@ -272,7 +272,7 @@ function createTopic($request_values)
 
 	// validate form
 	if (empty($topic_name)) {
-		array_push($errors, "Topic name required");
+		array_push($_SESSION['errors'], "Topic name required");
 	}
 
 	// Ensure that no topic is saved twice. 
@@ -281,11 +281,11 @@ function createTopic($request_values)
 	$result = mysqli_query($conn, $topic_check_query);
 
 	if (mysqli_num_rows($result) > 0) { // if topic exists
-		array_push($errors, "Topic already exists");
+		array_push($_SESSION['errors'], "Topic already exists");
 	}
 
 	// register topic if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		$query = "INSERT INTO topics (name, slug) 
 					  VALUES('$topic_name', '$topic_slug')";
 		mysqli_query($conn, $query);
@@ -315,13 +315,13 @@ function editTopic($topic_id)
 		// set form values ($topic_name) on the form to be updated
 		$topic_name = $topic['name'];
 	} else {
-		array_push($errors, "Only admins can edit topics");
+		array_push($_SESSION['errors'], "Only admins can edit topics");
 	}
 }
 
 function updateTopic($request_values)
 {
-	global $conn, $errors, $topic_name, $topic_id;
+	global $conn, $topic_name, $topic_id;
 
 	$topic_name = esc($request_values['topic_name']);
 	$topic_id = esc($request_values['topic_id']);
@@ -331,11 +331,11 @@ function updateTopic($request_values)
 
 	// validate form
 	if (empty($topic_name)) {
-		array_push($errors, "Topic name required");
+		array_push($_SESSION['errors'], "Topic name required");
 	}
 
 	// register topic if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		$query = "UPDATE topics SET name='$topic_name', slug='$topic_slug' WHERE id=$topic_id";
 		mysqli_query($conn, $query);
 

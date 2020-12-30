@@ -50,29 +50,29 @@ $posts = getAllPosts();
 								<td><?php echo $key + 1; ?></td>
 								<td><?php echo $post['author']; ?></td>
 								<td>
-									<a class="red" target="_blank" href="<?php echo BASE_URL . 'single_post?post-slug=' . $post['slug'] ?>">
+									<a class="red" target="_blank" href="<?php ROOT_PATH ?>/post/<?php echo $post['slug'] ?>">
 										<?php echo $post['title']; ?>
 									</a>
 								</td>
 								<td><?php echo $post['views']; ?></td>
 								<td>
 									<?php if ($post['published'] == true) : ?>
-										<a class="publish  btn btn-success" href="posts?publish=<?php echo $post['id'] ?>">
+										<a class="publish  btn btn-success" href="<?php ROOT_PATH ?>/posts?publish=<?php echo $post['id'] ?>">
 											<i class="fas fa-check"></i> </a>
 									<?php else : ?>
 
-										<a class="unpublish btn btn-danger" href="posts?unpublish=<?php echo $post['id'] ?>">
+										<a class="unpublish btn btn-warning" href="<?php ROOT_PATH ?>/posts?unpublish=<?php echo $post['id'] ?>">
 											<i class="fas fa-times"></i> </a>
 									<?php endif ?>
 								</td>
 								<td>
-									<a class="edit btn btn-primary" href="create_post?edit-post=<?php echo $post['id'] ?>">
+									<a class="edit btn btn-primary" href="<?php ROOT_PATH ?>/create_post?edit-post=<?php echo $post['id'] ?>">
 										<i class="fas fa-edit"></i>
 									</a>
 								</td>
 								<?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
 									<td>
-										<a class="delete btn btn-danger" href="create_post?delete-post=<?php echo $post['id'] ?>">
+										<a class="delete btn btn-danger" href="<?php ROOT_PATH ?>/create_post?delete-post=<?php echo $post['id'] ?>">
 											<i class=" fas fa-trash"></i>
 										</a>
 									</td>
@@ -86,6 +86,8 @@ $posts = getAllPosts();
 		<!-- // Display records from DB -->
 
 	</div>
+	<?php include('../includes/js.php'); ?>
+
 
 </body>
 

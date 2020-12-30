@@ -1,14 +1,23 @@
+Options +FollowSymlinks
 RewriteEngine On
+RewriteRule ^(.*)/$ /$1 [L,R]
+Options -Indexes
+
+RewriteBase /
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
 Header always set Content-Security-Policy "upgrade-insecure-requests;"
 
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php [NC,L] 
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.php -f
+RewriteRule (.*) $1.php [L]
+RewriteRule   ^post/(.+)$   single_post?post-slug=$1   [L]
+RewriteRule   ^topic/(.+)$   filtered_posts?topic=$1   [L]
+RewriteRule   ^review/(.+)$   single_review?review-slug=$1   [L]
+RewriteRule   ^genre/(.+)$   filtered_reviews?genre=$1   [L]
+RewriteRule   ^type/(.+)$   filtered_reviews?type=$1   [L]
 
-RewriteBase /
 ErrorDocument 400 /errors/bad-request
 ErrorDocument 401 /errors/auth-reqd
 ErrorDocument 403 /errors/forbid
@@ -24,8 +33,6 @@ RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
 RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 # Return 403 Forbidden header and show the content of the root homepage
 RewriteRule .* index [F]
-
-Options -Indexes
 
 <filesMatch ".(ico|jpg|jpeg|png|gif|svg|woff2)$">
  Header set Cache-Control "max-age=2592000, public"

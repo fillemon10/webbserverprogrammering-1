@@ -12,7 +12,7 @@
   <title> Vilka vi är - Läxhjälpen</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href='http://fonts.googleapis.com/css?family=merienda+one' rel='stylesheet' />
-  <link href="../html/css/laxhjalpen.css" rel="stylesheet" />
+  <link href="<?php ROOT_PATH ?>/../html/css/laxhjalpen.css" rel="stylesheet" />
 </head>
 
 <body class="subpage">

@@ -2,7 +2,7 @@
 // variable declaration
 $username = "";
 $email    = "";
-$errors = array();
+$_SESSION['errors'] = array();
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -14,16 +14,16 @@ if (isset($_POST['reg_user'])) {
 
 	// form validation: ensure that the form is correctly filled
 	if (empty($username)) {
-		array_push($errors, "Uhmm...We gonna need your username");
+		array_push($_SESSION['errors'], "Uhmm...We gonna need your username");
 	}
 	if (empty($email)) {
-		array_push($errors, "Oops.. Email is missing");
+		array_push($_SESSION['errors'], "Oops.. Email is missing");
 	}
 	if (empty($password_1)) {
-		array_push($errors, "uh-oh you forgot the password");
+		array_push($_SESSION['errors'], "uh-oh you forgot the password");
 	}
 	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match");
+		array_push($_SESSION['errors'], "The two passwords do not match");
 	}
 
 	// Ensure that no user is registered twice. 
@@ -36,14 +36,14 @@ if (isset($_POST['reg_user'])) {
 
 	if ($user) { // if user exists
 		if ($user['username'] === $username) {
-			array_push($errors, "Username already exists");
+			array_push($_SESSION['errors'], "Username already exists");
 		}
 		if ($user['email'] === $email) {
-			array_push($errors, "Email already exists");
+			array_push($_SESSION['errors'], "Email already exists");
 		}
 	}
 	// register user if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		$password = md5($password_1); //encrypt the password before saving in the database
 		$query = "INSERT INTO users (username, email, password, created_at, updated_at) 
 					  VALUES('$username', '$email', '$password', now(), now())";
@@ -76,12 +76,12 @@ if (isset($_POST['login_btn'])) {
 	$password = esc($_POST['password']);
 
 	if (empty($username)) {
-		array_push($errors, "Username required");
+		array_push($_SESSION['errors'], "Username required");
 	}
 	if (empty($password)) {
-		array_push($errors, "Password required");
+		array_push($_SESSION['errors'], "Password required");
 	}
-	if (empty($errors)) {
+	if (empty($_SESSION['errors'])) {
 		$password = md5($password); // encrypt password
 		$sql = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
 
@@ -106,7 +106,7 @@ if (isset($_POST['login_btn'])) {
 				exit(0);
 			}
 		} else {
-			array_push($errors, 'Wrong credentials');
+			array_push($_SESSION['errors'], 'Wrong credentials');
 		}
 	}
 }

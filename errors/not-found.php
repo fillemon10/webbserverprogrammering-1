@@ -25,7 +25,7 @@ $title = "404 Not Found";
                             $path = str_replace("/filip/cinemania", "", $_SERVER['REQUEST_URI']);
                             echo $path;
                             ?> does not exist, sorry.</h4>
-                        <a href="index" class="theme-btn">Back to Home</a>
+                        <a href="<?php ROOT_PATH ?>/index" class="theme-btn">Back to Home</a>
                     </div>
                 </div>
             </div>

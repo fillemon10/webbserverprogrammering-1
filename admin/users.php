@@ -92,13 +92,13 @@
                                                 </td>
                                                 <td><?php echo $admin['role']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary edit" href="users?edit-admin=<?php echo $admin['id'] ?>">
+                                                    <a class="btn btn-primary edit" href="<?php ROOT_PATH ?>/users?edit-admin=<?php echo $admin['id'] ?>">
                                                         <i class="fas fa-edit"></i>
 
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger delete" href="users?delete-admin=<?php echo $admin['id'] ?>">
+                                                    <a class="btn btn-danger delete" href="<?php ROOT_PATH ?>/users?delete-admin=<?php echo $admin['id'] ?>">
                                                         <i class="fas fa-trash"></i>
 
                                                     </a>
@@ -114,6 +114,7 @@
             </div>
             <!-- // Middle form - to create and edit -->
         </div>
+        <?php include('../includes/js.php'); ?>
     </body>
 <?php } else {
     header('location: dashboard');

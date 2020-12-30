@@ -12,7 +12,7 @@
   <title>De senaste blogginläggen - Läxhjälpen </title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href='http://fonts.googleapis.com/css?family=merienda+One' rel='stylesheet' />
-  <link href="css/laxhjalpen.css" rel="stylesheet" />
+  <link href="<?php ROOT_PATH ?>/css/laxhjalpen.css" rel="stylesheet" />
 </head>
 
 <body class="subpage">
@@ -27,7 +27,7 @@
       $slug = urlencode($slug);
       echo <<<ARTICLE
   <article class="blogpostlist">
-    <h3><a href="blog?slug={$slug}">{$blogpost['title']}</a></h3>
+    <h3><a href="<?php ROOT_PATH ?>/blog?slug={$slug}">{$blogpost['title']}</a></h3>
     <p><small>Postad {$blogpost['pubdate']} av
 {$blogpost['username']}</small></p>
    <div class="blogtext">

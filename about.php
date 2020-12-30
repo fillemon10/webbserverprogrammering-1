@@ -119,25 +119,6 @@ require_once("includes/head.php");
     </section>
     <!--========================= about-section end========================= -->
 
-    <section id="contact" class="contact-section cta-bg img-bg pt-110 pb-100" style="background-image: url('assets/img/bg/cta-bg.jpg');">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-5 col-lg-7">
-                    <div class="section-title mb-60">
-                        <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Space Free Lite</span>
-                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">You are using free lite version of Space</h2>
-                        <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Please, purchase full version of the template to get all pages, features and commercial license</p>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-5">
-                    <div class="contact-btn text-left text-lg-right">
-                        <a href="https://rebrand.ly/space-gg" rel="nofollow" class="theme-btn">Purchase Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <!-- ========================= client-logo-section start ========================= -->
     <section class="client-logo-section pt-100 pb-130">

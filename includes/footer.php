@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
-                    <a href="index" class="footer-logo mb-30"><img class="footer-logo" src="assets/img/logo/logo.svg" alt="logo" /></a>
+                    <a href="<?php ROOT_PATH ?>/index" class="footer-logo mb-30"><img class="footer-logo" src="<?php ROOT_PATH ?>/assets/img/logo/logo.svg" alt="logo" /></a>
                     <p class="mb-30 footer-desc">
                         Read reviews of new And old movies. Cinemania is the #1 place to find good movies to watch. Check out the latests reviews.
                     </p>
@@ -34,16 +34,16 @@
                     <ul class="footer-links">
 
                         <li>
-                            <a href="terms">Terms of service</a>
+                            <a href="<?php ROOT_PATH ?>/terms">Terms of service</a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="license">License</a>
+                            <a href="<?php ROOT_PATH ?>/license">License</a>
                         </li>
                         <li>
-                            <a href="security">Security</a>
+                            <a href="<?php ROOT_PATH ?>/security">Security</a>
                         </li>
                     </ul>
                 </div>
@@ -72,16 +72,16 @@
                     <div class="footer-social-links">
                         <ul class="d-flex">
                             <li>
-                                <a href="instagram.com"><i class="red fab fa-instagram"></i></a>
+                                <a href="<?php ROOT_PATH ?>/instagram.com"><i class="red fab fa-instagram-square"></i></a>
                             </li>
                             <li>
-                                <a href="facebook.com"><i class="red fab fa-facebook"></i></a>
+                                <a href="<?php ROOT_PATH ?>/facebook.com"><i class="red fab fa-facebook-square"></i></a>
                             </li>
                             <li>
-                                <a href="twitter.com"><i class="red fab fa-twitter"></i></a>
+                                <a href="<?php ROOT_PATH ?>/twitter.com"><i class="red fab fa-twitter-square"></i></a>
                             </li>
                             <li>
-                                <a href="linkedin.com"><i class="red fab fa-linkedin"></i></a>
+                                <a href="<?php ROOT_PATH ?>/linkedin.com"><i class="red fab fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>

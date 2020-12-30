@@ -1,4 +1,4 @@
-<section class="subscribe-section pt-70 pb-70 img-bg" style="background-image: url('assets/img/bg/common-bg.svg')">
+<section class="subscribe-section pt-70 pb-70 img-bg" style="background-image: url('<?php ROOT_PATH ?>/assets/img/bg/common-bg.svg')">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6">
@@ -10,7 +10,7 @@
             <div class="col-xl-6 col-lg-6">
                 <form action="#" class="subscribe-form wow fadeInRight" data-wow-delay=".4s">
                     <input type="text" name="subs-email" id="subs-email" placeholder="Your Email" />
-                    <button type="submit"><i class="fas fa-telegram-original"></i></button>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>

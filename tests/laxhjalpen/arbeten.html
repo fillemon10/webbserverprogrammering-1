@@ -12,37 +12,38 @@
     <meta charset="utf-8" />
     <title>Våra tjänster - Läxhjälpen</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- base href="/" / -->
+    <!-- base href="<?php ROOT_PATH ?>/" / -->
     <!-- Påverkar #-länkarna -->
-    <link href="http://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet" />
-    <link href="css/laxhjalpen.css" title="Finished" rel="stylesheet" />
-    <link rel="stylesheet" href="themes/default/default.css" media="screen" />
-    <link rel="stylesheet" href="css/nivo-slider.css" media="screen" />
+    <link href="<?php ROOT_PATH ?>/http://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet" />
+    <link href="<?php ROOT_PATH ?>/css/laxhjalpen.css" title="Finished" rel="stylesheet" />
+    <link rel="stylesheet" href="<?php ROOT_PATH ?>/themes/default/default.css" media="screen" />
+    <link rel="stylesheet" href="<?php ROOT_PATH ?>/css/nivo-slider.css" media="screen" />
   </head>
   <body class="subpage">
     <header>
       <div class="hwrap">
-        <a href="./"><img class="logo" alt="Startsidan" src="img/laxlogo.png" /></a>
+        <a href="<?php ROOT_PATH ?>/./"><img class="logo" alt="Startsidan" src="img/laxlogo.png" /></a>
         <h1>Läxhjälpen: <span>Våra tjänster</span></h1>
       </div>
       <hr class="tagline" />
     </header>
     <nav>
       <ul class="menu">
-        <li><a href="om-oss">Vilka vi är &#x3020;</a></li>
-        <li><a href="arbeten.html">Vad vi gör &#x2318;</a></li>
-        <li><a href="blog">Blogg &#x272A;</a></li>
-        <li><a href="contact">Kontakt &#x260E;</a></li>
+        <li><a href="<?php ROOT_PATH ?>/om-oss">Vilka vi är &#x3020;</a></li>
+        <li><a href="<?php ROOT_PATH ?>/arbeten.html">Vad vi gör &#x2318;</a></li>
+        <li><a href="<?php ROOT_PATH ?>/blog">Blogg &#x272A;</a></li>
+        <li><a href="<?php ROOT_PATH ?>/contact">Kontakt &#x260E;</a></li>
       </ul>
     </nav>
     <div role="main">
       <div class="blockslider theme-default">
-
         <div id="slider" class="nivoSlider">
-          <a href="#lstuga"><img src="img/1.png" alt="" title="Läxstuga med dig och dina kompisar" /></a>
-          <a href="#skypeh"><img src="img/2.png" alt="" title="Hjälp via Skype" /></a>
-          <a href="#mailhp"><img src="img/3.png" alt="" title="Hjälp via email" /></a>
-          <a href="#videos"><img src="img/4.png" alt="" title="Vi har också videolektioner" /></a>
+          <a href="<?php ROOT_PATH ?>/#lstuga"
+            ><img src="img/1.png" alt="" title="Läxstuga med dig och dina kompisar"
+          /></a>
+          <a href="<?php ROOT_PATH ?>/#skypeh"><img src="img/2.png" alt="" title="Hjälp via Skype" /></a>
+          <a href="<?php ROOT_PATH ?>/#mailhp"><img src="img/3.png" alt="" title="Hjälp via email" /></a>
+          <a href="<?php ROOT_PATH ?>/#videos"><img src="img/4.png" alt="" title="Vi har också videolektioner" /></a>
         </div>
         <!-- /div -->
       </div>

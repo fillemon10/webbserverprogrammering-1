@@ -52,7 +52,7 @@ if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
         }
         togglePublishReview($review_id, $message);
     } else {
-        array_push($errors, "Only admins can publish or unpublish");
+        array_push($_SESSION['errors'], "Only admins can publish or unpublish");
     }
 }
 
@@ -84,7 +84,7 @@ function getAllReviews()
 
 function createReview($request_values)
 {
-    global $conn, $errors, $title, $imdb_id, $our_rating, $body, $published, $omdb;
+    global $conn, $title, $imdb_id, $our_rating, $body, $published, $omdb;
     include("../includes/omdb.php");
     $user = $_SESSION['user']['id'];
     $title = esc($request_values['title']);
@@ -97,18 +97,18 @@ function createReview($request_values)
 
     // validate form
     if (empty($title)) {
-        array_push($errors, "Review title is required");
+        array_push($_SESSION['errors'], "Review title is required");
     }
     // validate form
     if (empty($body)) {
-        array_push($errors, "Review body is required");
+        array_push($_SESSION['errors'], "Review body is required");
     }
     // validate form
     if (empty($imdb_id)) {
-        array_push($errors, "Review IMDb ID is required");
+        array_push($_SESSION['errors'], "Review IMDb ID is required");
     }
     if (empty($our_rating)) {
-        array_push($errors, "Review rating is required");
+        array_push($_SESSION['errors'], "Review rating is required");
     }
 
     // Ensure that no review is saved twice. 
@@ -117,11 +117,11 @@ function createReview($request_values)
     $result = mysqli_query($conn, $review_check_query);
 
     if (mysqli_num_rows($result) > 0) { // if post exists
-        array_push($errors, "A review already exists with that title.");
+        array_push($_SESSION['errors'], "A review already exists with that title.");
     }
 
     // create review if there are no errors in the form
-    if (count($errors) == 0) {
+    if (count($_SESSION['errors']) == 0) {
         $movie = $omdb->get_by_id($imdb_id);
         $movie_poster = $movie["Poster"];
         $movie_title = $movie["Title"];
@@ -179,7 +179,7 @@ function editReview($review_id)
 
 function updateReview($request_values)
 {
-    global $conn, $errors, $review_id, $title, $imdb_id, $our_rating, $body, $published, $omdb;
+    global $conn, $review_id, $title, $imdb_id, $our_rating, $body, $published, $omdb;
     $title = esc($request_values['title']);
     $imdb_id = esc($request_values['imdb_id']);
     $our_rating = esc($request_values['our_rating']);
@@ -199,22 +199,22 @@ function updateReview($request_values)
 
     // validate form
     if (empty($title)) {
-        array_push($errors, "Review title is required");
+        array_push($_SESSION['errors'], "Review title is required");
     }
     // validate form
     if (empty($body)) {
-        array_push($errors, "Review body is required");
+        array_push($_SESSION['errors'], "Review body is required");
     }
     // validate form
     if (empty($imdb_id)) {
-        array_push($errors, "Review IMDb ID can't be changed");
+        array_push($_SESSION['errors'], "Review IMDb ID can't be changed");
     }
     if (empty($our_rating)) {
-        array_push($errors, "Review rating is required");
+        array_push($_SESSION['errors'], "Review rating is required");
     }
 
     // register review if there are no errors in the form
-    if (count($errors) == 0) {
+    if (count($_SESSION['errors']) == 0) {
 
         $query = "UPDATE reviews SET title='$title', slug='$review_slug', views=0, imdb_id='$imdb_id', our_rating='$our_rating', body='$body', published=$published, updated_at=now() WHERE id=$review_id";
         mysqli_query($conn, $query);

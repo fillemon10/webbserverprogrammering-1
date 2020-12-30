@@ -1,9 +1,7 @@
 <?php
 require_once("config.php");
-$title = "Reviews";
+$title = "Recommendations";
 require_once("includes/head.php");
-require_once('includes/public_functions.php');
-$reviews = array_reverse(getPublishedReviews());
 ?>
 
 <body>
@@ -16,7 +14,9 @@ $reviews = array_reverse(getPublishedReviews());
     <!-- ========================= page-banner-section end ========================= -->
 
     <!-- ========================= -section start ========================= -->
-    <?php include("includes/review.php"); ?>
+    <section class="-section pt-50 pb-20">
+
+    </section>
     <!-- ========================= -section end ========================= -->
 
     <!-- ========================= subscribe-section start ========================= -->

@@ -2,62 +2,63 @@
 
 // if user clicks the publish review comment button
 if (isset($_GET['publish_review']) || isset($_GET['unpublish_review'])) {
-    $message = "";
-    if (isset($_GET['publish_review'])) {
-        $message = "Post successfully unpublished";
-        $comment_id = $_GET['publish_review'];
-    } else if (isset($_GET['unpublish_review'])) {
-        $message = "Post published successfully";
-        $comment_id = $_GET['unpublish_review'];
-    }
-    togglePublishComment($comment_id, $message, "review");
+    togglePublishCommentPre("review");
 }
 // if user clicks the publish post comment button
 if (isset($_GET['publish_post']) || isset($_GET['unpublish_post'])) {
+    togglePublishCommentPre("post");
+}
+// if user clicks the publish post comment button
+if (isset($_GET['publish_reply_review']) || isset($_GET['unpublish_reply_review'])) {
+    togglePublishReplyPre("review");
+}
+// if user clicks the publish post comment button
+if (isset($_GET['publish_reply_post']) || isset($_GET['unpublish_reply_post'])) {
+    togglePublishReplyPre("post");
+}
+function togglePublishCommentPre($type)
+{
     $message = "";
-    if (isset($_GET['publish_post'])) {
-        $message = "Post successfully unpublished";
-        $comment_id = $_GET['publish_post'];
-    } else if (isset($_GET['unpublish_post'])) {
-        $message = "Post published successfully";
-        $comment_id = $_GET['unpublish_post'];
+    if (isset($_GET['publish_' . $type])) {
+        $message = ucfirst($type) . " comment successfully unpublished";
+        $comment_id = $_GET['publish' . $type];
+    } else if (isset($_GET['unpublish_' . $type])) {
+        $message = ucfirst($type) . " comment published successfully";
+        $comment_id = $_GET['unpublish_' . $type];
     }
-    togglePublishComment($comment_id, $message, "review");
+    togglePublishComment($comment_id, $message, $type);
 }
-
+function togglePublishReplyPre($type)
+{
+    $message = "";
+    if (isset($_GET['publish_reply_' . $type])) {
+        $message = ucfirst($type) . " reply successfully unpublished";
+        $reply_id = $_GET['publish_reply_' . $type];
+    } else if (isset($_GET['unpublish_reply_' . $type])) {
+        $message = ucfirst($type) . " reply published successfully";
+        $reply_id = $_GET['unpublish_reply_' . $type];
+    }
+    togglePublishReply($reply_id, $message, $type);
+}
 //get all comments from reviews
-function getReviewComments()
+function getComments($table)
 {
     global $conn;
+    $table_name = $table . "_comments";
+    $post_or_review_id = $table . "_id";
 
-    $sql = "SELECT * FROM review_comments";
+    $sql = "SELECT * FROM $table_name";
     $result = mysqli_query($conn, $sql);
     $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $final_comments = array();
     foreach ($comments as $comment) {
         $comment["username"] = getCommentUserById($comment['user_id']);
-        $comment['title_of'] = getTitleOf($comment['review_id']);
-        $comment['title'] = getTitle($comment['review_id'], "reviews");
-        $comment['slug'] = getSlug($comment['review_id'], "reviews");
-        array_push($final_comments, $comment);
-    }
-    return array_reverse($final_comments);
-}
-//get all comments from posts
-function getPostComments()
-{
-    global $conn;
-
-    $sql = "SELECT * FROM post_comments";
-    $result = mysqli_query($conn, $sql);
-    $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    $final_comments = array();
-    foreach ($comments as $comment) {
-        $comment["username"] = getCommentUserById($comment['user_id']);
-        $comment['title'] = getTitle($comment['post_id'], "posts");
-        $comment['slug'] = getSlug($comment['post_id'], "posts");
+        if ($table == "review") {
+            $comment['title_of'] = getTitleOf($comment['review_id']);
+        }
+        $comment['title'] = getTitle($comment[$post_or_review_id], $table . "s");
+        $comment['slug'] = getSlug($comment[$post_or_review_id], $table . "s");
         array_push($final_comments, $comment);
     }
     return array_reverse($final_comments);
@@ -129,34 +130,44 @@ function togglePublishComment($comment_id, $message, $table)
         exit(0);
     }
 }
+function togglePublishReply($reply_id, $message, $table)
+{
+    global $conn;
+    $table = $table . "_comment_replies";
+    $sql = "UPDATE $table SET published=!published WHERE id=$reply_id";
+
+    if (mysqli_query($conn, $sql)) {
+        $_SESSION['message'] = $message;
+        header("location: comments");
+        exit(0);
+    }
+}
 // if user clicks the Delete review comment button
-if (isset($_GET['delete-review-comment'])) {
-    $comment_id = $_GET['delete-review-comment'];
-    deleteReviewComment($comment_id);
+if (isset($_GET['delete-comment-review'])) {
+    $comment_id = $_GET['delete-comment-review'];
+    deleteComment($comment_id, "review");
 }
-// delete blog post
-function deleteReviewComment($comment_id)
-{
-    global $conn;
-    $sql = "DELETE FROM review_comments WHERE id=$comment_id";
-
-    if (mysqli_query($conn, $sql)) {
-        $_SESSION['message'] = "Comment successfully deleted";
-        header("location: comments");
-        exit(0);
-    }
-}
-
 // if user clicks the Delete post comment button
-if (isset($_GET['delete-post-comment'])) {
-    $comment_id = $_GET['delete-post-comment'];
-    deletepostComment($comment_id);
+if (isset($_GET['delete-comment-post'])) {
+    $comment_id = $_GET['delete-comment-post'];
+    deleteComment($comment_id, "post");
 }
-// delete blog post
-function deletepostComment($comment_id)
+// if user clicks the Delete review comment button
+if (isset($_GET['delete-reply-review'])) {
+    $reply_id = $_GET['delete-reply-review'];
+    deleteReply($reply_id, "review");
+}
+// if user clicks the Delete review comment button
+if (isset($_GET['delete-reply-post'])) {
+    $reply_id = $_GET['delete-reply-post'];
+    deleteReply($reply_id, "post");
+}
+// delete comment
+function deleteComment($comment_id, $table)
 {
     global $conn;
-    $sql = "DELETE FROM post_comments WHERE id=$comment_id";
+    $table_name = $table . "_comments";
+    $sql = "DELETE FROM $table_name WHERE id=$comment_id";
 
     if (mysqli_query($conn, $sql)) {
         $_SESSION['message'] = "Comment successfully deleted";
@@ -164,18 +175,31 @@ function deletepostComment($comment_id)
         exit(0);
     }
 }
-function GetReviewReplies($comment_id)
+// delete reply
+function deleteReply($reply_id, $table)
 {
     global $conn;
+    $table_name = $table . "_comment_replies";
+    $sql = "DELETE FROM $table_name WHERE id=$reply_id";
 
-    $sql = "SELECT * FROM review_comment_replies WHERE comment_id='$comment_id'";
+    if (mysqli_query($conn, $sql)) {
+        $_SESSION['message'] = "Reply successfully deleted";
+        header("location: comments");
+        exit(0);
+    }
+}
+function GetReplies($comment_id, $table)
+{
+    global $conn;
+    $table_name = $table . "_comment_replies";
+
+    $sql = "SELECT * FROM $table_name WHERE comment_id='$comment_id'";
     $result = mysqli_query($conn, $sql);
     $replies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     $final_replies = array();
     foreach ($replies as $reply) {
         $reply["username"] = getCommentUserById($reply['user_id']);
-        $reply["reply-to"] = getCommentById($reply['comment_id'], "review_comments");
 
         array_push($final_replies, $reply);
     }

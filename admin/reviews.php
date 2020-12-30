@@ -54,7 +54,7 @@ $reviews = getAllreviews();
                                 <td><?php echo $review['our_rating']; ?></td>
                                 <td><?php echo $review['title_of']; ?></td>
                                 <td>
-                                    <a class="red" target="_blank" href="<?php echo BASE_URL . 'single_review?review-slug=' . $review['slug'] ?>">
+                                    <a class="red" target="_blank" href="<?php ROOT_PATH ?>/review/<?php echo $review['slug'] ?>">
                                         <?php echo $review['title']; ?>
                                     </a>
                                 </td>
@@ -62,21 +62,21 @@ $reviews = getAllreviews();
                                 <td>
                                     <?php
                                     if ($review['published'] == true) : ?>
-                                        <a class="publish  btn btn-success" href="reviews?publish=<?php echo $review['id'] ?>">
+                                        <a class="publish  btn btn-success" href="<?php ROOT_PATH ?>/reviews?publish=<?php echo $review['id'] ?>">
                                             <i class="fas fa-check"></i> </a>
                                     <?php else : ?>
-                                        <a class="unpublish btn btn-danger" href="reviews?unpublish=<?php echo $review['id'] ?>">
+                                        <a class="unpublish btn btn-warning" href="<?php ROOT_PATH ?>/reviews?unpublish=<?php echo $review['id'] ?>">
                                             <i class="fas fa-times"></i> </a>
                                     <?php endif ?>
                                 </td>
                                 <td>
-                                    <a class="edit btn btn-primary" href="create_review?edit-review=<?php echo $review['id'] ?>">
+                                    <a class="edit btn btn-primary" href="<?php ROOT_PATH ?>/create_review?edit-review=<?php echo $review['id'] ?>">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                                 <?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
                                     <td>
-                                        <a class="delete btn btn-danger" href="create_review?delete-review=<?php echo $review['id'] ?>">
+                                        <a class="delete btn btn-danger" href="<?php ROOT_PATH ?>/create_review?delete-review=<?php echo $review['id'] ?>">
                                             <i class=" fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -90,6 +90,7 @@ $reviews = getAllreviews();
         <!-- // Display records from DB -->
 
     </div>
+    <?php include('../includes/js.php'); ?>
 
 </body>
 

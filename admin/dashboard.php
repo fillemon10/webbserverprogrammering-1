@@ -13,6 +13,9 @@ include(ROOT_PATH . '/admin/includes/dashboard_functions.php')
 
 	<section class="feature-section pt-50 pb-20">
 		<div class="container">
+			<!-- Display notification message -->
+			<?php include(ROOT_PATH . '/includes/messages.php') ?>
+			<?php include(ROOT_PATH . '/includes/errors.php') ?>
 			<div class="row">
 				<div class="col-xl-4 col-lg-7 col-md-9 mx-auto">
 					<div class=" box-style">
@@ -55,6 +58,8 @@ include(ROOT_PATH . '/admin/includes/dashboard_functions.php')
 			</div>
 		</div>
 	</section>
+	<?php include('../includes/js.php'); ?>
+
 
 
 </body>

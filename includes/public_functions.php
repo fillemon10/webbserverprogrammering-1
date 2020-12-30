@@ -317,51 +317,62 @@ function GetPublishedComments($review_post_id, $table)
 function postComment($request_values, $review_post_id, $table)
 {
 	global $conn, $text;
-	$errors = array();
+	$_SESSION['errors'] = array();
+	if (isset($_SESSION['user'])) {
 
-	$table_name = $table . "_comments";
+		$table_name = $table . "_comments";
+		$text_request = "comment_" . $table . "_text";
 
-	$user = $_SESSION['user']['id'];
-	$text = htmlentities(htmlspecialchars($request_values['comment_post_text']));
-	if (empty($text)) {
-		array_push($errors, "Text is required");
-	}
-	// create comment if there are no errors in the form
-	if (count($errors) == 0) {
+		$user = $_SESSION['user']['id'];
+		$text = htmlentities(htmlspecialchars($request_values[$text_request]));
+		if (empty($text)) {
+			array_push($_SESSION['errors'], "Text is required");
+		}
+		// create comment if there are no errors in the form
+		if (count($_SESSION['errors']) == 0) {
 
-		$query = "INSERT INTO $table_name (post_id, user_id, text, created_at, updated_at) 
+			$query = "INSERT INTO $table_name (post_id, user_id, text, created_at, updated_at) 
 			VALUES('$review_post_id',
 			'$user', 
 			'$text', now(), now())";
 
-		mysqli_query($conn, $query);
+			mysqli_query($conn, $query);
+		}
+		unset($_POST);
+	} else {
+		array_push($_SESSION['errors'], "Login to comment.");
 	}
 }
 function postReply($request_values, $comment_id, $table)
 {
 	global $conn;
-	$errors = array();
-	$table_name = $table . "_comment_replies";
+	$_SESSION['errors'] = array();
+	if (isset($_SESSION['user'])) {
 
-	$user = $_SESSION['user']['id'];
-	$text_request = "reply_" . $table . "_text";
-	$text = htmlentities(htmlspecialchars($request_values[$text_request]));
-	if (empty($text)) {
-		array_push($errors, "Text is required");
-	}
+		$table_name = $table . "_comment_replies";
 
-	// create reply if there are no errors in the form
-	if (count($errors) == 0) {
+		$user = $_SESSION['user']['id'];
+		$text_request = "reply_" . $table . "_text";
+		$text = htmlentities(htmlspecialchars($request_values[$text_request]));
+		if (empty($text)) {
+			array_push($_SESSION['errors'], "Text is required");
+		}
 
-		$query = "INSERT INTO $table_name (comment_id, user_id, text, created_at, updated_at) 
+		// create reply if there are no errors in the form
+		if (count($_SESSION['errors']) == 0) {
+
+			$query = "INSERT INTO $table_name (comment_id, user_id, text, created_at, updated_at) 
 				VALUES('$comment_id',
 				'$user', 
 				'$text', now(), now())";
 
-		mysqli_query($conn, $query);
-		$_SESSION['message'] = "Comment has been sent for review";
+			mysqli_query($conn, $query);
+			$_SESSION['message'] = "Comment has been sent for review";
+		}
+		unset($_POST);
+	} else {
+		array_push($_SESSION['errors'], "Login to comment.");
 	}
-	unset($_POST);
 }
 //get replies
 function GetPublishedReplies($comment_id, $table)

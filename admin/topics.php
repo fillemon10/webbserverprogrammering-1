@@ -74,13 +74,13 @@ $topics = getAllTopics();
 										<?php if (in_array($_SESSION['user']['role'], ["Admin"])) { ?>
 
 											<td>
-												<a class=" btn btn-primary" href="topics?edit-topic=<?php echo $topic['id'] ?>">
+												<a class=" btn btn-primary" href="<?php ROOT_PATH ?>/topics?edit-topic=<?php echo $topic['id'] ?>">
 							<i class=" fas fa-edit"></i>
 							</a>
 							</td>
 
 							<td>
-								<a class=" btn btn-danger" href="topics?delete-topic=<?php echo $topic['id'] ?>">
+								<a class=" btn btn-danger" href="<?php ROOT_PATH ?>/topics?delete-topic=<?php echo $topic['id'] ?>">
 									<i class=" fas fa-trash"></i>
 								</a>
 							</td>
@@ -101,6 +101,7 @@ $topics = getAllTopics();
 
 
 	</div>
+	<?php include('../includes/js.php'); ?>
 
 </body>
 

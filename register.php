@@ -44,7 +44,7 @@ require_once("includes/head.php");
                                 </div>
                         </form>
                         <div class="row">
-                            <p class="wow fadeInUp text-right" data-wow-delay="1.3s">Already a member? <a class="red" href="login"> Sign in</a></p>
+                            <p class="wow fadeInUp text-right" data-wow-delay="1.3s">Already a member? <a class="red" href="<?php ROOT_PATH ?>/login"> Sign in</a></p>
                         </div>
                     </div>
                 </div>
@@ -71,5 +71,5 @@ require_once("includes/head.php");
 <div class="container  box-style w-50 pt-15">
 
 
-    <p>Already a member? <a href="login">Sign in</a></p>
+    <p>Already a member? <a href="<?php ROOT_PATH ?>/login">Sign in</a></p>
 </div>

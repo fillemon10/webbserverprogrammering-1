@@ -54,7 +54,7 @@ if (isset($_GET['publish']) || isset($_GET['unpublish'])) {
 		}
 		togglePublishPost($post_id, $message);
 	} else {
-		array_push($errors, "Only admins can publish or unpublish");
+		array_push($_SESSION['errors'], "Only admins can publish or unpublish");
 	}
 }
 
@@ -86,7 +86,7 @@ function getAllPosts()
 
 function createPost($request_values)
 {
-	global $conn, $errors, $title, $image, $topic_id, $body, $published;
+	global $conn, $title, $image, $topic_id, $body, $published;
 	$user = $_SESSION['user']['id'];
 	$title = esc($request_values['title']);
 	$body = htmlentities(esc($request_values['body']));
@@ -101,19 +101,19 @@ function createPost($request_values)
 
 	// validate form
 	if (empty($title)) {
-		array_push($errors, "Post title is required");
+		array_push($_SESSION['errors'], "Post title is required");
 	}
 
 	// validate form
 	if (empty($body)) {
-		array_push($errors, "Post body is required");
+		array_push($_SESSION['errors'], "Post body is required");
 	}
 	// validate form
 	if (empty($topic_id)) {
-		array_push($errors, "Post topic is required");
+		array_push($_SESSION['errors'], "Post topic is required");
 	}
 	if (empty($image)) {
-		array_push($errors, "Image URL is required");
+		array_push($_SESSION['errors'], "Image URL is required");
 	}
 
 	// Ensure that no post is saved twice. 
@@ -122,11 +122,11 @@ function createPost($request_values)
 	$result = mysqli_query($conn, $post_check_query);
 
 	if (mysqli_num_rows($result) > 0) { // if post exists
-		array_push($errors, "A post already exists with that title.");
+		array_push($_SESSION['errors'], "A post already exists with that title.");
 	}
 
 	// create post if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		$query = "INSERT INTO posts (user_id, title, slug, views, image, body, published, created_at, updated_at) 
 		VALUES('$user', '$title', '$post_slug', 0, '$image', '$body', $published, now(), now())";
 
@@ -164,7 +164,7 @@ function editPost($role_id)
 
 function updatePost($request_values)
 {
-	global $conn, $errors, $post_id, $title, $image, $topic_id, $body, $published;
+	global $conn, $post_id, $title, $image, $topic_id, $body, $published;
 	$title = esc($request_values['title']);
 	$image = esc($request_values['image']);
 	$body = esc($request_values['body']);
@@ -179,22 +179,22 @@ function updatePost($request_values)
 
 	// validate form
 	if (empty($title)) {
-		array_push($errors, "Post title is required");
+		array_push($_SESSION['errors'], "Post title is required");
 	}
 	// validate form
 	if (empty($body)) {
-		array_push($errors, "Post body is required");
+		array_push($_SESSION['errors'], "Post body is required");
 	}
 	// validate form
 	if (empty($topic_id)) {
-		array_push($errors, "Post topic is required");
+		array_push($_SESSION['errors'], "Post topic is required");
 	}
 	if (empty($image)) {
-		array_push($errors, "Image URL is required");
+		array_push($_SESSION['errors'], "Image URL is required");
 	}
 
 	// register topic if there are no errors in the form
-	if (count($errors) == 0) {
+	if (count($_SESSION['errors']) == 0) {
 		$query = "UPDATE posts SET title='$title', slug='$post_slug', views=0, image='$image', body='$body', published=$published, updated_at=now() WHERE id=$post_id";
 
 		mysqli_query($conn, $query);

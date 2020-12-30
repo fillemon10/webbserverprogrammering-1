@@ -37,11 +37,11 @@ require_once("includes/head.php");
                             </div>
                             <div class="row">
                                 <div class="col-7">
-                                    <p class="wow fadeInUp" data-wow-delay="1.3s">Not yet a member? <a class="red" href="register">Sign up</a></p>
+                                    <p class="wow fadeInUp" data-wow-delay="1.3s">Not yet a member? <a class="red" href="<?php ROOT_PATH ?>/register">Sign up</a></p>
 
                                 </div>
                                 <div class="col-5">
-                                    <a class="red text-right wow fadeInUp float-right" data-wow-delay="1.3s" href="forgot_password">Forgotten Password?</a></p>
+                                    <a class="red text-right wow fadeInUp float-right" data-wow-delay="1.3s" href="<?php ROOT_PATH ?>/forgot_password">Forgotten Password?</a></p>
                                 </div>
                             </div>
                         </div>

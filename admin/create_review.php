@@ -60,6 +60,8 @@ $titles = "Create Review" ?>
         <!-- // Middle form - to create and edit -->
 
     </div>
+    <?php include('../includes/js.php'); ?>
+
 
 </body>
 

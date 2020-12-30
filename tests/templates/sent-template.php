@@ -22,9 +22,9 @@ $h1span = "Tack för ditt meddelande";
   <meta charset="utf-8" />
   <title>Ditt meddelande har skickats - Läxhjälpen</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <base href="/" />
+  <base href="<?php ROOT_PATH ?>/" />
   <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' />
-  <link href="css/laxhjalpen.css" rel="stylesheet" />
+  <link href="<?php ROOT_PATH ?>/css/laxhjalpen.css" rel="stylesheet" />
 </head>
 
 <body class="subpage">
